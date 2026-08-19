@@ -1,0 +1,58 @@
+# L'Invisithèque — root ignore rules
+# The prototype keeps its own prototype/.gitignore (Next.js rules).
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Dependencies and build output (in case anything lands outside prototype/) ---
+node_modules/
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# --- Environment variables ---
+.env
+.env.*
+!.env.example
+
+# --- Deployment ---
+.vercel
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- Source brief (working documents, not versioned) ---
+root_data/
+
+# --- Office temp/lock files ---
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+.~lock.*#
+
+# --- Misc ---
+*.pem
+/coverage
+.cache/
+tmp/
