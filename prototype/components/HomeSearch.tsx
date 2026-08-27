@@ -25,7 +25,7 @@ export default function HomeSearch() {
   const [query, setQuery] = useState("");
 
   return (
-    <section className="max-w-3xl py-12">
+    <section className="py-12">
       <p className="mb-2 text-xs font-semibold tracking-widest text-primary uppercase">
         Un repère de confiance entre pair·es
       </p>

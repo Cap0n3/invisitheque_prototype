@@ -56,7 +56,9 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         </BreadcrumbList>
       </Breadcrumb>
 
-      <header className="grid gap-6 md:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
+      {/* Same grid as the detail sections below, so the image column and the
+          first card share the same width and edges. */}
+      <header className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
         {/* The brief shows professionals with a round photo; no real photos here. */}
         {resource.professional ? (
           <Avatar className="size-40 md:size-56">
@@ -69,7 +71,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
           <AspectRatio ratio={4 / 3} className="rounded-xl bg-gradient-to-br from-muted to-accent" />
         )}
 
-        <div className="space-y-3">
+        <div className="space-y-3 xl:col-span-2">
           <div className="flex flex-wrap gap-1">
             <Badge variant="outline">{typeLabel(resource.resourceType)}</Badge>
             <Badges resource={resource} />
