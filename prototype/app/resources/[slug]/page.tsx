@@ -119,6 +119,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
           details={resource.culturalContent}
           shortDescription={resource.shortDescription}
           disorderCategories={resource.disorderCategories}
+          recommendedBy={resource.recommendedBy}
         />
       ) : null}
       {resource.place ? (

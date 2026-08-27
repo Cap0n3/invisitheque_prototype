@@ -46,4 +46,4 @@ Phases **E1** (type tabs, result grid, detail pages, no-result answers, load mor
 demonstrated. **E3** (accounts, reviews, favorites, saved searches) is visual simulation only and
 labelled `démo` in the UI.
 
-Open questions for the workshop are listed in `SPECS.md` section 49 and surfaced in the app at `/about`.
+Open questions for the workshop are listed in `SPECS.md` section 49.

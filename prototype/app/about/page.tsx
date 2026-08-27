@@ -1,24 +1,10 @@
 import { Info } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Item, ItemContent, ItemGroup, ItemMedia, ItemTitle } from "@/components/ui/item";
 
 export const metadata = {
   title: "À propos du prototype – L’Invisithèque",
 };
-
-/** Workshop support page: what the prototype is, and what it is not. */
-const OPEN_QUESTIONS = [
-  "Les types de ressources sont-ils les bons ? (« Outils pratiques » et « Programmes et formations » sont proposés à titre de test)",
-  "Quels filtres doivent rester visibles, et lesquels vont sous « Plus de filtres » ?",
-  "Le badge « Vérifié par Les Invisibles » doit-il apparaître sur les cartes ? Selon quels critères ?",
-  "Les filtres par famille d’accompagnement suffisent-ils, ou faut-il aussi la spécialité ?",
-  "Que doit afficher une carte de résultat ? Trop, pas assez ?",
-  "Les cartes de résultat se ressemblent toutes : faut-il un moyen de distinguer les ressources mises en avant ?",
-  "Signaler l’absence de ressource et proposer une ressource : deux parcours ou un seul ?",
-  "Le tri par avis doit-il exister dès la V1, alors que les avis arrivent à l’étape 3 ?",
-];
 
 export default function AboutPage() {
   return (
@@ -57,25 +43,6 @@ export default function AboutPage() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">Questions ouvertes pour l’atelier</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ItemGroup>
-            {OPEN_QUESTIONS.map((question, index) => (
-              <Item key={question} size="sm" className="border-transparent px-0">
-                <ItemMedia>
-                  <Badge variant="secondary">{index + 1}</Badge>
-                </ItemMedia>
-                <ItemContent>
-                  <ItemTitle className="font-normal text-muted-foreground">{question}</ItemTitle>
-                </ItemContent>
-              </Item>
-            ))}
-          </ItemGroup>
-        </CardContent>
-      </Card>
     </div>
   );
 }
