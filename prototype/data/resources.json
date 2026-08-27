@@ -264,7 +264,7 @@
       "genre": "practical",
       "pointOfView": "practitioner",
       "mainTheme": "fatigue",
-      "description": "Ce guide propose des repères simples autour de la fatigue persistante, de la gestion de l’énergie et de l’organisation des activités.",
+      "description": "Ce guide propose des repères simples autour de la fatigue persistante : comprendre les mécanismes en jeu, distinguer fatigue passagère et fatigue pathologique, repérer ses propres signaux d’alerte. La seconde partie est entièrement pratique : gestion de l’énergie au fil de la semaine, organisation des activités par priorités, communication avec l’entourage et préparation des rendez-vous médicaux.",
       "proposerOpinion": "Une ressource claire pour commencer à mettre des mots sur la fatigue et discuter de stratégies concrètes.",
       "links": [{ "label": "Consulter la ressource", "url": "#" }]
     }
@@ -298,7 +298,7 @@
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "vécu quotidien",
-      "description": "Chaque épisode donne la parole à une personne concernée : diagnostic, travail, relations, stratégies d’adaptation.",
+      "description": "Chaque épisode donne la parole à une personne concernée, en une trentaine de minutes : l’errance avant le diagnostic, le travail, les relations, les stratégies d’adaptation trouvées au fil du temps. Les invité·es choisissent librement les thèmes abordés. Un épisode sur deux se clôt par une séquence « boîte à outils » qui reprend les ressources concrètes citées pendant l’entretien.",
       "proposerOpinion": "Le format court fait du bien les jours de brouillard cognitif. On s’y reconnaît très vite.",
       "links": [
         { "label": "Écouter le podcast", "url": "#" },
@@ -335,7 +335,7 @@
       "genre": "documentary",
       "pointOfView": "journalist",
       "mainTheme": "douleur chronique",
-      "description": "Le film suit quatre personnes en quête de diagnostic et interroge la place de la parole des patient·es dans le parcours de soin.",
+      "description": "Tourné sur trois années, le film suit quatre personnes en quête de diagnostic, de la première consultation aux errances entre spécialistes. Il interroge la place accordée à la parole des patient·es dans le parcours de soin, le poids du doute médical et ce que l’attente fait aux corps et aux vies. Des chercheur·es et des soignant·es éclairent les situations sans jamais recouvrir les récits.",
       "proposerOpinion": "À regarder à deux : c’est un bon support pour expliquer à ses proches ce que veut dire « invisible ».",
       "links": [{ "label": "Voir le documentaire", "url": "#" }]
     }
@@ -369,7 +369,7 @@
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "énergie et quotidien",
-      "description": "Un recueil de textes courts et d’illustrations, organisé par situations : le travail, les courses, les repas, les proches.",
+      "description": "Un recueil de textes courts et d’illustrations, écrit à six mains par des personnes concernées et organisé par situations concrètes : le travail, les courses, les repas, les proches, les jours d’annulation. Chaque chapitre se lit en quelques minutes et se termine par une page « ce qui m’aide », où les auteur·rices partagent leurs stratégies sans jamais les présenter comme des leçons.",
       "proposerOpinion": "On peut le lire par petits bouts, ce qui est rare et précieux quand la concentration est limitée.",
       "links": [{ "label": "Acheter le livre", "url": "#" }]
     }
@@ -627,7 +627,7 @@
       "genre": "practical",
       "pointOfView": "patient",
       "mainTheme": "suivi des symptômes",
-      "description": "Saisie en trois gestes, export PDF pour le corps médical, rappels désactivables. Version gratuite complète, options payantes.",
+      "description": "L’application permet de noter en trois gestes symptômes, niveau d’énergie et déclencheurs possibles, puis d’en dégager des tendances sur la semaine ou le mois. Un export PDF met ces données en forme pour les rendez-vous médicaux. Les rappels sont entièrement désactivables et l’app fonctionne hors connexion. La version gratuite est complète ; les options payantes ajoutent graphiques et sauvegarde.",
       "proposerOpinion": "La seule appli que j’ai réussi à tenir plus d’un mois : elle ne culpabilise pas quand on oublie des jours.",
       "links": [{ "label": "Télécharger l’application", "url": "#" }]
     }
@@ -739,7 +739,7 @@
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "endométriose",
-      "description": "Du premier rendez-vous minimisé au diagnostic, l’autrice raconte en dessin ce que les mots médicaux ne disent pas : la douleur, le doute, et la colère aussi.",
+      "description": "Du premier rendez-vous minimisé jusqu’au diagnostic, dix ans plus tard, l’autrice raconte en dessin ce que les mots médicaux ne disent pas : la douleur qui s’invite partout, le doute qu’on finit par retourner contre soi, la colère aussi. Le trait, tour à tour tendre et rageur, rend lisible l’invisible. En fin d’album, un cahier fait le point sur l’endométriose et oriente vers des ressources.",
       "proposerOpinion": "Je l’ai offerte à ma mère et à ma gynécologue. Les deux ont enfin compris la même chose.",
       "links": [{ "label": "Acheter la BD", "url": "#" }]
     }
@@ -773,7 +773,7 @@
       "genre": "educational",
       "pointOfView": "doctor",
       "mainTheme": "migraine chronique",
-      "description": "Des épisodes de moins de dix minutes : mécanismes, déclencheurs, traitements de fond, et comment en parler à son médecin traitant.",
+      "description": "Des épisodes de moins de dix minutes, un thème par vidéo : mécanismes de la crise, déclencheurs, traitements de fond et de crise, aura, migraine et hormones, et comment préparer sa consultation. La neurologue s’appuie sur les études récentes, cite ses sources à l’écran et répond une fois par mois aux questions envoyées par les abonné·es. Toutes les vidéos sont sous-titrées avec soin.",
       "proposerOpinion": "Enfin une médecin qui explique sans minimiser. Les vidéos courtes passent bien même en pleine crise… le lendemain.",
       "links": [
         { "label": "Voir la chaîne", "url": "#" },
@@ -875,7 +875,7 @@
       "genre": "practical",
       "pointOfView": "association",
       "mainTheme": "droits et démarches",
-      "description": "On répond à quelques questions (pays, situation professionnelle, diagnostic ou non) et le site affiche les démarches possibles, dans l’ordre conseillé.",
+      "description": "On répond à quelques questions — pays, situation professionnelle, diagnostic posé ou non — et le site affiche les aides et démarches possibles, présentées dans l’ordre conseillé, avec pour chacune les documents à préparer et les délais habituels. Les fiches sont relues par des juristes bénévoles et datées, pour savoir si l’information est encore à jour. Couvre la Suisse, la France et la Belgique.",
       "proposerOpinion": "Le seul endroit où les infos suisses et françaises sont à jour au même endroit. Nos bénévoles s’en servent en permanence.",
       "links": [{ "label": "Ouvrir la Boussole", "url": "#" }]
     }
@@ -909,7 +909,7 @@
       "genre": "practical",
       "pointOfView": "patient",
       "mainTheme": "communication avec l’entourage",
-      "description": "Chaque carte porte une phrase prête à l’emploi (« Aujourd’hui je peux écouter, pas organiser ») et une explication courte au dos, à montrer plutôt qu’à dire.",
+      "description": "Chaque carte porte une phrase prête à l’emploi (« Aujourd’hui je peux écouter, pas organiser ») et, au dos, une courte explication à montrer plutôt qu’à dire. Le jeu couvre les situations les plus courantes : annuler sans se justifier, demander une pause, expliquer le brouillard cognitif, poser une limite à table. Un mode d’emploi suggère comment introduire les cartes auprès des proches.",
       "proposerOpinion": "Créées avec un groupe de parole. Les jours sans voix ou sans mots, tendre une carte change tout.",
       "links": [{ "label": "Télécharger les cartes (PDF)", "url": "#" }]
     }
@@ -973,7 +973,7 @@
       "genre": "fiction",
       "pointOfView": "patient",
       "mainTheme": "vivre après le diagnostic",
-      "description": "Sans pathos ni happy end forcé, le film suit une année de renoncements, d’ajustements et de petites victoires, coécrit avec des personnes concernées.",
+      "description": "Sans pathos ni happy end forcé, le film suit une année de la vie d’Emma après l’annonce de sa maladie : les renoncements, les ajustements, les malentendus avec les proches et les petites victoires qui recomposent un quotidien vivable. Le scénario a été coécrit avec des personnes concernées, et cela se sent dans la justesse des scènes de travail et de famille.",
       "proposerOpinion": "Le premier film où je n’ai pas eu l’impression qu’on parlait de nous sans nous.",
       "links": [{ "label": "Voir le film", "url": "#" }]
     }
@@ -1007,7 +1007,7 @@
       "genre": "documentary",
       "pointOfView": "journalist",
       "mainTheme": "parcours de vie",
-      "description": "Chaque épisode suit une personne pendant plusieurs mois : rendez-vous médicaux, travail, entourage. Diffusée gratuitement en ligne.",
+      "description": "Quatre épisodes de trente minutes, quatre personnes suivies pendant plusieurs mois : rendez-vous médicaux, aménagements au travail, moments d’entourage, jours de repli. La caméra s’efface et laisse la durée faire son travail : on voit ce que l’invisible coûte réellement, et ce qui aide. La série est diffusée gratuitement en ligne, avec sous-titres et audiodescription.",
       "proposerOpinion": "L’épisode sur les vertiges est le seul contenu que j’ai pu montrer à mon employeur.",
       "links": [{ "label": "Voir les épisodes", "url": "#" }]
     }
@@ -1041,7 +1041,7 @@
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "vertiges chroniques",
-      "description": "Des billets courts, écrits entre deux crises : les stratégies qui marchent, celles qui ne marchent pas, et ce qu’on aimerait que les autres comprennent.",
+      "description": "Des billets courts, écrits entre deux crises : les stratégies qui marchent, celles qui ne marchent pas, et ce qu’on aimerait que les autres comprennent. L’autrice documente aussi ses expérimentations — rééducation vestibulaire, aménagement du poste de travail, trajets en transports — avec un ton direct qui fait du bien. Les commentaires, modérés, sont devenus un petit espace d’entraide.",
       "proposerOpinion": "C’est le blog que j’aurais voulu trouver au moment de mon diagnostic.",
       "links": [{ "label": "Lire le blog", "url": "#" }]
     }
@@ -1075,7 +1075,7 @@
       "genre": "educational",
       "pointOfView": "researcher",
       "mainTheme": "recherche et vécu",
-      "description": "Chaque numéro traite un thème (sommeil, douleur, travail) en deux volets : l’état de la recherche, puis des témoignages qui le confrontent au réel.",
+      "description": "Chaque numéro traite un thème — le sommeil, la douleur, le travail — en deux volets : un état de la recherche, écrit avec des chercheur·es et relu pour rester lisible, puis des témoignages qui confrontent ces résultats au réel. La rubrique « on a testé » évalue outils et dispositifs avec des testeur·ses concerné·es. Une partie des articles est en accès libre, le reste sur abonnement.",
       "proposerOpinion": "Certains articles sont en accès libre, le reste sur abonnement. La rubrique « on a testé » vaut le détour.",
       "links": [{ "label": "Découvrir le magazine", "url": "#" }]
     }
@@ -1109,7 +1109,7 @@
       "genre": "educational",
       "pointOfView": "association",
       "mainTheme": "idées reçues",
-      "description": "« Mais tu n’as pas l’air malade » : dix phrases entendues mille fois, et pour chacune, ce qu’elle rate et quoi répondre — ou pas.",
+      "description": "« Mais tu n’as pas l’air malade », « à ton âge, c’est dans la tête », « tout le monde est fatigué »… Dix phrases entendues mille fois, et pour chacune : ce qu’elle rate, ce qu’elle produit chez la personne qui la reçoit, et quoi répondre — ou pas. L’article s’appuie sur les témoignages recueillis lors des cercles de l’association et se partage facilement avec l’entourage.",
       "proposerOpinion": "L’article qu’on envoie à sa famille avant les fêtes.",
       "links": [{ "label": "Lire l’article", "url": "#" }]
     }
@@ -1143,7 +1143,7 @@
       "genre": "wellbeing_practice",
       "pointOfView": "practitioner",
       "mainTheme": "écriture et vécu",
-      "description": "Deux heures par mois, une consigne simple, aucun niveau requis. On écrit dix minutes, on partage si on veut, caméra libre.",
+      "description": "Deux heures par mois, en visio, autour d’une consigne simple et sans aucun niveau requis : on écrit une dizaine de minutes, on partage si on le souhaite, caméra libre. L’animatrice, formée à l’écriture thérapeutique, veille au cadre : pas de commentaire sur les textes, pas d’obligation de lire. Les consignes sont pensées pour les jours de fatigue comme pour les jours d’élan.",
       "proposerOpinion": "Je n’écris jamais entre les séances, et pourtant je n’en ai raté aucune.",
       "links": [{ "label": "S’inscrire à l’atelier", "url": "#" }]
     }
@@ -1177,7 +1177,7 @@
       "genre": "practical",
       "pointOfView": "association",
       "mainTheme": "écoute et soutien",
-      "description": "Le mardi et le jeudi de 19h à 21h, des bénévoles ayant eux-mêmes un vécu de l’Invisible répondent, sans conseil médical ni jugement.",
+      "description": "Le mardi et le jeudi de 19 h à 21 h, des bénévoles ayant eux-mêmes un vécu de l’Invisible répondent au téléphone : pas de conseil médical, pas de jugement, juste une écoute formée et le temps qu’il faut. Si besoin, elles et ils orientent vers les permanences, les cercles ou les ressources vérifiées de l’Invisithèque. L’appel est gratuit et peut rester anonyme.",
       "proposerOpinion": "Parfois on n’a pas besoin d’une solution, juste de quelqu’un qui comprend au bout du fil.",
       "links": [{ "label": "Voir les horaires et le numéro", "url": "#" }]
     }

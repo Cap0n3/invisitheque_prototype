@@ -1,4 +1,5 @@
 import { ExternalLink, type LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Item,
@@ -12,13 +13,15 @@ import {
 /** Detail block: same shell for all three record structures. */
 export function DetailSection({
   title,
+  className,
   children,
 }: {
   title: React.ReactNode;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <Card className="h-fit">
+    <Card className={cn("h-fit", className)}>
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
