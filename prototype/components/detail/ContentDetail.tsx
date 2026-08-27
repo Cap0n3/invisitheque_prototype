@@ -1,8 +1,15 @@
 import { DataList, DetailSection, LinkList } from "./DetailSection";
-import { formatAuthors, label } from "@/lib/data";
+import { formatAuthors, label, labels } from "@/lib/data";
 import type { CulturalContentDetails } from "@/lib/types";
 
-export default function ContentDetail({ details }: { details: CulturalContentDetails }) {
+export default function ContentDetail({
+  details,
+  disorderCategories,
+}: {
+  details: CulturalContentDetails;
+  /** Carried by the resource, not the content block ("one concept, one field"). */
+  disorderCategories: string[];
+}) {
   return (
     <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
       <DetailSection title="Description">
@@ -12,6 +19,10 @@ export default function ContentDetail({ details }: { details: CulturalContentDet
             {
               label: "Auteur·rice·s",
               value: formatAuthors(details.authors, details.hasMultipleAuthors),
+            },
+            {
+              label: "Maladies ou handicaps concernés",
+              value: labels("disorderCategories", disorderCategories).join(", "),
             },
             { label: "Format", value: label("mediaFormats", details.format) },
             { label: "Genre", value: label("mediaGenres", details.genre) },

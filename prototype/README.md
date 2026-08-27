@@ -23,7 +23,7 @@ Or use the Makefile at the repository root (`make run`, `make check`…).
 | `app/` | Routes: home, `/search`, `/resources/[slug]`, `/contribute`, `/about` |
 | `components/` | App components; `search/` and `detail/` sub-trees, `ui/` is shadcn/ui |
 | `lib/` | Domain logic: `config.ts` (workshop knobs), `filters.ts`, `search.ts`, `sorting.ts`, `url.ts`, `data.ts`, `types.ts` |
-| `data/` | The demo dataset: `resources.json` (26 records) and `taxonomy.json` (French labels) |
+| `data/` | The demo dataset: `resources.json` (33 records) and `taxonomy.json` (French labels) |
 
 ## Conventions
 

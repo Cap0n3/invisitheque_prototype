@@ -34,7 +34,7 @@ Everything the workshop is likely to challenge lives in a few files:
 | Need | File |
 |---|---|
 | Visible French labels (types, objectives, disorders, formats…) | `prototype/data/taxonomy.json` |
-| Demo dataset (26 resources) | `prototype/data/resources.json` |
+| Demo dataset (33 resources) | `prototype/data/resources.json` |
 | Visible filters, primary vs "Plus de filtres", tabs, ranking bonuses, page size | `prototype/lib/config.ts` |
 | AND / OR semantics, relaxed suggestions | `prototype/lib/filters.ts` |
 | Theme colors and badge tones | `prototype/app/globals.css` |

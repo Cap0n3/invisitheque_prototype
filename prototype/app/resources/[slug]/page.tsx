@@ -114,7 +114,12 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
       </header>
 
       {resource.professional ? <ProfessionalDetail details={resource.professional} /> : null}
-      {resource.culturalContent ? <ContentDetail details={resource.culturalContent} /> : null}
+      {resource.culturalContent ? (
+        <ContentDetail
+          details={resource.culturalContent}
+          disorderCategories={resource.disorderCategories}
+        />
+      ) : null}
       {resource.place ? (
         <PlaceDetail
           details={resource.place}

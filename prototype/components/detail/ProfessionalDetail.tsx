@@ -1,3 +1,12 @@
+import {
+  AtSign,
+  CalendarCheck,
+  Globe,
+  Link as LinkIcon,
+  Mail,
+  Phone,
+  type LucideIcon,
+} from "lucide-react";
 import { DataList, DetailSection, LinkList } from "./DetailSection";
 import {
   Accordion,
@@ -8,28 +17,32 @@ import {
 import { formatDate, label, labels } from "@/lib/data";
 import type { ProfessionalDetails } from "@/lib/types";
 
-const SOCIAL_LABELS: Record<string, string> = {
-  linkedin: "LinkedIn",
-  instagram: "Instagram",
-  facebook: "Facebook",
-  youtube: "YouTube",
-  tiktok: "TikTok",
-  twitter: "X / Twitter",
+// AtSign for every social profile: this lucide version ships no brand icons.
+const SOCIAL_MEDIA: Record<string, { label: string; icon: LucideIcon }> = {
+  linkedin: { label: "LinkedIn", icon: AtSign },
+  instagram: { label: "Instagram", icon: AtSign },
+  facebook: { label: "Facebook", icon: AtSign },
+  youtube: { label: "YouTube", icon: AtSign },
+  tiktok: { label: "TikTok", icon: AtSign },
+  twitter: { label: "X / Twitter", icon: AtSign },
 };
 
 export default function ProfessionalDetail({ details }: { details: ProfessionalDetails }) {
   const { contact, socialLinks, discount, upcomingAssociationEvent } = details;
 
   const contactLinks = [
-    contact.website ? { label: "Site internet", href: contact.website } : null,
-    contact.bookingUrl ? { label: "Prendre rendez-vous", href: contact.bookingUrl } : null,
-    contact.phone ? { label: contact.phone } : null,
-    contact.email ? { label: contact.email } : null,
+    contact.website ? { label: "Site internet", href: contact.website, icon: Globe } : null,
+    contact.bookingUrl
+      ? { label: "Prendre rendez-vous", href: contact.bookingUrl, icon: CalendarCheck }
+      : null,
+    contact.phone ? { label: contact.phone, icon: Phone } : null,
+    contact.email ? { label: contact.email, icon: Mail } : null,
     ...Object.entries(socialLinks ?? {}).map(([key, url]) => ({
-      label: SOCIAL_LABELS[key] ?? key,
+      label: SOCIAL_MEDIA[key]?.label ?? key,
       href: url,
+      icon: SOCIAL_MEDIA[key]?.icon ?? LinkIcon,
     })),
-  ].filter(Boolean) as Array<{ label: string; href?: string }>;
+  ].filter(Boolean) as Array<{ label: string; href?: string; icon: LucideIcon }>;
 
   return (
     <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">

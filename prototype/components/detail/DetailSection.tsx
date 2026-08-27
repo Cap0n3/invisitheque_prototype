@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, type LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Item,
@@ -52,7 +52,11 @@ export function DataList({ rows }: { rows: Array<{ label: string; value: React.R
  * the user does not lose the Invisithèque. Internal navigation, by contrast,
  * stays in the current tab.
  */
-export function LinkList({ links }: { links: Array<{ label: string; href?: string }> }) {
+export function LinkList({
+  links,
+}: {
+  links: Array<{ label: string; href?: string; icon?: LucideIcon }>;
+}) {
   return (
     <ItemGroup>
       {links.map((link) => (
@@ -61,6 +65,7 @@ export function LinkList({ links }: { links: Array<{ label: string; href?: strin
             <a href={link.href} target="_blank" rel="noopener noreferrer">
               <ItemContent>
                 <ItemTitle className="text-primary underline underline-offset-4">
+                  {link.icon ? <link.icon aria-hidden="true" className="size-4 shrink-0" /> : null}
                   {link.label}
                   <ExternalLink aria-hidden="true" className="size-3.5" />
                   <span className="sr-only">(ouvre un nouvel onglet)</span>
@@ -69,7 +74,10 @@ export function LinkList({ links }: { links: Array<{ label: string; href?: strin
             </a>
           ) : (
             <ItemContent>
-              <ItemTitle className="font-normal">{link.label}</ItemTitle>
+              <ItemTitle className="font-normal">
+                {link.icon ? <link.icon aria-hidden="true" className="size-4 shrink-0" /> : null}
+                {link.label}
+              </ItemTitle>
             </ItemContent>
           )}
         </Item>
