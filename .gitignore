@@ -1,5 +1,4 @@
 # L'Invisithèque — root ignore rules
-# The prototype keeps its own prototype/.gitignore (Next.js rules).
 
 # --- macOS ---
 .DS_Store

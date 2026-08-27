@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/**
+ * Palette : neutres chauds + un vert calme comme couleur primaire.
+ * Les tons de badges (vérifié / partenaire / cercle) sont sémantiques :
+ * un badge ne repose jamais sur la couleur seule, son texte porte le sens.
+ */
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.98 0.005 90);
+  --foreground: oklch(0.24 0.012 70);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.012 70);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.012 70);
+
+  --primary: oklch(0.47 0.055 168);
+  --primary-foreground: oklch(0.985 0.005 160);
+
+  --secondary: oklch(0.955 0.006 85);
+  --secondary-foreground: oklch(0.3 0.012 70);
+
+  --muted: oklch(0.955 0.006 85);
+  --muted-foreground: oklch(0.52 0.012 70);
+
+  --accent: oklch(0.945 0.015 168);
+  --accent-foreground: oklch(0.34 0.04 168);
+
+  --destructive: oklch(0.55 0.16 27);
+
+  --border: oklch(0.9 0.008 85);
+  --input: oklch(0.9 0.008 85);
+  --ring: oklch(0.47 0.055 168);
+
+  /* Signaux de confiance et de priorité */
+  --verified: oklch(0.94 0.03 165);
+  --verified-foreground: oklch(0.4 0.06 165);
+  --partner: oklch(0.94 0.045 80);
+  --partner-foreground: oklch(0.44 0.07 68);
+  --event: oklch(0.94 0.03 255);
+  --event-foreground: oklch(0.42 0.08 262);
+}
+
+.dark {
+  --background: oklch(0.2 0.008 80);
+  --foreground: oklch(0.96 0.004 90);
+  --card: oklch(0.25 0.008 80);
+  --card-foreground: oklch(0.96 0.004 90);
+  --popover: oklch(0.25 0.008 80);
+  --popover-foreground: oklch(0.96 0.004 90);
+  --primary: oklch(0.72 0.07 168);
+  --primary-foreground: oklch(0.2 0.02 168);
+  --secondary: oklch(0.3 0.008 80);
+  --secondary-foreground: oklch(0.96 0.004 90);
+  --muted: oklch(0.3 0.008 80);
+  --muted-foreground: oklch(0.72 0.008 85);
+  --accent: oklch(0.32 0.02 168);
+  --accent-foreground: oklch(0.96 0.004 90);
+  --destructive: oklch(0.7 0.19 22);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.07 168);
+  --verified: oklch(0.34 0.05 165);
+  --verified-foreground: oklch(0.9 0.05 165);
+  --partner: oklch(0.36 0.05 80);
+  --partner-foreground: oklch(0.92 0.05 85);
+  --event: oklch(0.34 0.05 262);
+  --event-foreground: oklch(0.9 0.05 262);
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-verified: var(--verified);
+  --color-verified-foreground: var(--verified-foreground);
+  --color-partner: var(--partner);
+  --color-partner-foreground: var(--partner-foreground);
+  --color-event: var(--event);
+  --color-event-foreground: var(--event-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "resourceTypes": [
+    {
+      "id": "professional",
+      "label": "Professionnel·les"
+    },
+    {
+      "id": "cultural_content",
+      "label": "Contenus"
+    },
+    {
+      "id": "support_space",
+      "label": "Dispositifs et espaces",
+      "shortLabel": "Dispositifs"
+    },
+    {
+      "id": "institution_partner",
+      "label": "Institutions et partenaires",
+      "shortLabel": "Institutions"
+    },
+    {
+      "id": "practical_tool",
+      "label": "Outils pratiques",
+      "shortLabel": "Outils"
+    },
+    {
+      "id": "program_training",
+      "label": "Programmes et formations",
+      "shortLabel": "Programmes"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "s_informer",
+      "label": "S’informer"
+    },
+    {
+      "id": "etre_accompagne",
+      "label": "Être accompagné·e"
+    },
+    {
+      "id": "mieux_vivre_au_quotidien",
+      "label": "Mieux vivre au quotidien"
+    },
+    {
+      "id": "se_detendre",
+      "label": "Se détendre"
+    },
+    {
+      "id": "apprendre",
+      "label": "Apprendre"
+    },
+    {
+      "id": "echanger",
+      "label": "Échanger"
+    },
+    {
+      "id": "trouver_du_soutien",
+      "label": "Trouver du soutien"
+    },
+    {
+      "id": "orientation_sociale",
+      "label": "Obtenir de l’aide pour s’orienter"
+    }
+  ],
+  "disorderCategories": [
+    {
+      "id": "troubles_douleur_chronique",
+      "label": "Douleurs chroniques"
+    },
+    {
+      "id": "troubles_fatigue",
+      "label": "Troubles liés à la fatigue"
+    },
+    {
+      "id": "troubles_digestifs",
+      "label": "Troubles digestifs"
+    },
+    {
+      "id": "troubles_vestibulaires",
+      "label": "Troubles vestibulaires"
+    },
+    {
+      "id": "troubles_neurologiques",
+      "label": "Troubles neurologiques"
+    },
+    {
+      "id": "troubles_psychiques",
+      "label": "Troubles psychiques"
+    },
+    {
+      "id": "troubles_musculosquelettiques",
+      "label": "Troubles musculosquelettiques"
+    },
+    {
+      "id": "tous_troubles",
+      "label": "Tous troubles et handicaps"
+    }
+  ],
+  "pricing": [
+    {
+      "id": "free",
+      "label": "Gratuit"
+    },
+    {
+      "id": "paid",
+      "label": "Payant"
+    },
+    {
+      "id": "mixed",
+      "label": "Gratuit et payant"
+    }
+  ],
+  "professionalFamilies": [
+    {
+      "id": "coaching_developpement",
+      "label": "Coaching et développement personnel"
+    },
+    {
+      "id": "therapies_psy",
+      "label": "Thérapies et accompagnement psychologique"
+    },
+    {
+      "id": "bien_etre_corporel",
+      "label": "Bien-être corporel et relaxation"
+    }
+  ],
+  "specialties": [
+    {
+      "id": "coaching",
+      "label": "Coaching",
+      "parent": "coaching_developpement"
+    },
+    {
+      "id": "psychologie",
+      "label": "Psychologie",
+      "parent": "therapies_psy"
+    },
+    {
+      "id": "gestion_stress",
+      "label": "Gestion du stress",
+      "parent": "therapies_psy"
+    },
+    {
+      "id": "psychotherapie",
+      "label": "Psychothérapie",
+      "parent": "therapies_psy"
+    },
+    {
+      "id": "hypnose",
+      "label": "Hypnose",
+      "parent": "therapies_psy"
+    },
+    {
+      "id": "ergotherapie",
+      "label": "Ergothérapie",
+      "parent": "therapies_psy"
+    },
+    {
+      "id": "sophrologie",
+      "label": "Sophrologie",
+      "parent": "bien_etre_corporel"
+    },
+    {
+      "id": "yoga",
+      "label": "Yoga",
+      "parent": "bien_etre_corporel"
+    },
+    {
+      "id": "relaxation",
+      "label": "Relaxation",
+      "parent": "bien_etre_corporel"
+    }
+  ],
+  "countries": [
+    {
+      "id": "CH",
+      "label": "Suisse"
+    },
+    {
+      "id": "FR",
+      "label": "France"
+    },
+    {
+      "id": "BE",
+      "label": "Belgique"
+    },
+    {
+      "id": "CA",
+      "label": "Canada"
+    }
+  ],
+  "consultationModes": [
+    {
+      "id": "in_person",
+      "label": "Présentiel"
+    },
+    {
+      "id": "remote",
+      "label": "Visio"
+    },
+    {
+      "id": "hybrid",
+      "label": "Mixte"
+    }
+  ],
+  "mediaFormats": [
+    {
+      "id": "book",
+      "label": "Livre"
+    },
+    {
+      "id": "comic",
+      "label": "BD / manga"
+    },
+    {
+      "id": "podcast",
+      "label": "Podcast"
+    },
+    {
+      "id": "movie",
+      "label": "Film"
+    },
+    {
+      "id": "series",
+      "label": "Série"
+    },
+    {
+      "id": "documentary",
+      "label": "Documentaire"
+    },
+    {
+      "id": "video",
+      "label": "Vidéo"
+    },
+    {
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "id": "magazine",
+      "label": "Magazine"
+    },
+    {
+      "id": "app",
+      "label": "Application"
+    },
+    {
+      "id": "website",
+      "label": "Site web"
+    },
+    {
+      "id": "practical_guide",
+      "label": "Guide pratique"
+    },
+    {
+      "id": "association_article",
+      "label": "Article de l’association"
+    },
+    {
+      "id": "atelier",
+      "label": "Atelier"
+    },
+    {
+      "id": "service",
+      "label": "Service"
+    }
+  ],
+  "mediaGenres": [
+    {
+      "id": "testimony",
+      "label": "Témoignage"
+    },
+    {
+      "id": "educational",
+      "label": "Formation"
+    },
+    {
+      "id": "wellbeing_practice",
+      "label": "Pratique bien-être"
+    },
+    {
+      "id": "practical",
+      "label": "Pratique"
+    },
+    {
+      "id": "fiction",
+      "label": "Fiction"
+    },
+    {
+      "id": "documentary",
+      "label": "Documentaire"
+    }
+  ],
+  "pointsOfView": [
+    {
+      "id": "patient",
+      "label": "Personne concernée"
+    },
+    {
+      "id": "doctor",
+      "label": "Médecin"
+    },
+    {
+      "id": "journalist",
+      "label": "Journaliste"
+    },
+    {
+      "id": "practitioner",
+      "label": "Praticien·ne"
+    },
+    {
+      "id": "researcher",
+      "label": "Chercheur·se"
+    },
+    {
+      "id": "association",
+      "label": "Association"
+    }
+  ],
+  "supportCategories": [
+    {
+      "id": "peer_group",
+      "label": "Groupe de parole"
+    },
+    {
+      "id": "wellbeing_space",
+      "label": "Espace de bien-être"
+    },
+    {
+      "id": "accessible_cultural_place",
+      "label": "Lieu culturel accessible"
+    },
+    {
+      "id": "care_center",
+      "label": "Centre de soins"
+    },
+    {
+      "id": "rehabilitation_center",
+      "label": "Centre de réadaptation"
+    },
+    {
+      "id": "collaborative_platform",
+      "label": "Plateforme collaborative"
+    },
+    {
+      "id": "forum",
+      "label": "Forum d’échange"
+    },
+    {
+      "id": "administrative_support",
+      "label": "Soutien administratif"
+    },
+    {
+      "id": "social_orientation",
+      "label": "Orientation sociale"
+    },
+    {
+      "id": "association_circle",
+      "label": "Cercle de l’association"
+    },
+    {
+      "id": "programme_formation",
+      "label": "Programme / formation"
+    }
+  ],
+  "institutionCategories": [
+    {
+      "id": "association",
+      "label": "Association"
+    },
+    {
+      "id": "public_institution",
+      "label": "Institution publique"
+    },
+    {
+      "id": "private_organization",
+      "label": "Organisation privée"
+    },
+    {
+      "id": "research_center",
+      "label": "Centre de recherche"
+    },
+    {
+      "id": "university",
+      "label": "Université"
+    }
+  ],
+  "deliveryModes": [
+    {
+      "id": "in_person",
+      "label": "Présentiel"
+    },
+    {
+      "id": "digital",
+      "label": "Digital"
+    },
+    {
+      "id": "hybrid",
+      "label": "Mixte"
+    }
+  ]
+}
