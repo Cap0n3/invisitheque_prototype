@@ -16,12 +16,19 @@ export default function AboutPage() {
         <AlertTitle>Ce que c’est</AlertTitle>
         <AlertDescription>
           <p>
-            Une maquette interactive de l’Invisithèque, construite pour discuter concrètement de
-            l’organisation des filtres, des résultats et des fiches avec l’association.
+            Une maquette interactive de l’Invisithèque, conçue pour discuter concrètement avec
+            vous de l’organisation des filtres, de l’affichage des résultats et de la structure
+            des fiches.
           </p>
           <p>
-            Toutes les données sont fictives. Les personnes, lieux et organisations présentés
-            n’existent pas.
+            L’objectif est de pouvoir visualiser le fonctionnement de l’Invisithèque et interagir
+            directement avec la maquette, ce qui est beaucoup plus parlant qu’une simple
+            description. Le design final sera réalisé une fois le fonctionnement et la structure
+            générale validés à travers ce wireframe.
+          </p>
+          <p>
+            Bien sûr, toutes les données utilisées sont fictives. Les personnes, lieux et
+            organisations présentés n’existent pas.
           </p>
         </AlertDescription>
       </Alert>
@@ -32,6 +39,11 @@ export default function AboutPage() {
         </CardHeader>
         <CardContent>
           <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+            <li>
+              pas une application prête pour la production ! C’est un prototype jetable, construit
+              seulement pour valider l’interface et sans sécurité, sans protection des données. Le
+              code ne sera pas réutilisé pour la vraie Invisithèque ;
+            </li>
             <li>pas de base de données, pas de compte, pas de back-office ;</li>
             <li>pas de design final : couleurs et typographies sont volontairement neutres ;</li>
             <li>
