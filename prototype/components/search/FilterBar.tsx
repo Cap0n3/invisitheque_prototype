@@ -23,11 +23,13 @@ export default function FilterBar({
   filters,
   onToggleValue,
   onToggleVerified,
+  onTogglePartners,
   onReset,
 }: {
   filters: FilterState;
   onToggleValue: (key: MultiFilterKey, id: string) => void;
   onToggleVerified: () => void;
+  onTogglePartners: () => void;
   onReset: () => void;
 }) {
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -100,6 +102,16 @@ export default function FilterBar({
                 />
                 <FieldLabel htmlFor="verified-only" className="font-normal">
                   Uniquement les ressources vérifiées par l’association
+                </FieldLabel>
+              </Field>
+              <Field orientation="horizontal">
+                <Checkbox
+                  id="partners-only"
+                  checked={filters.partnersOnly}
+                  onCheckedChange={onTogglePartners}
+                />
+                <FieldLabel htmlFor="partners-only" className="font-normal">
+                  Uniquement les partenaires des Invisibles
                 </FieldLabel>
               </Field>
             </Field>

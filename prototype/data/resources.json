@@ -502,39 +502,6 @@
     }
   },
   {
-    "id": "inst-001",
-    "slug": "association-les-invisibles",
-    "resourceType": "institution_partner",
-    "title": "Les Invisibles",
-    "shortDescription": "L’association à l’origine de l’Invisithèque : entraide, sensibilisation et représentation des personnes concernées.",
-    "image": null,
-    "objectives": ["trouver_du_soutien", "s_informer", "echanger"],
-    "disorderCategories": ["tous_troubles"],
-    "themes": ["association", "entraide"],
-    "searchKeywords": ["association", "bénévolat"],
-    "pricing": "free",
-    "isFeatured": true,
-    "isVerifiedByAssociation": true,
-    "recommendedBy": "L’équipe de l’association",
-    "isAssociationPartner": true,
-    "hasUpcomingAssociationEvent": false,
-    "baseRelevance": 64,
-    "publishedAt": "2026-01-05",
-    "ratingAverage": 4.9,
-    "reviewCount": 41,
-    "externalUrl": "#",
-    "place": {
-      "category": "association",
-      "deliveryMode": "hybrid",
-      "country": "CH",
-      "city": "Lausanne",
-      "presentation": "L’association réunit des personnes vivant avec une maladie ou un handicap invisible, leurs proches et des professionnel·les engagé·es.",
-      "whyItHelps": "Un point d’entrée unique vers les cercles, les permanences et les ressources vérifiées par des bénévoles qualifié·es.",
-      "website": "#",
-      "socialLinks": { "instagram": "#", "linkedin": "#", "facebook": "#" }
-    }
-  },
-  {
     "id": "inst-002",
     "slug": "bureau-cantonal-de-l-inclusion",
     "resourceType": "institution_partner",
@@ -707,7 +674,11 @@
       ],
       "presentation": "Élodie enseigne un yoga sans performance, où chaque posture existe en plusieurs variantes. Les cours en visio sont enregistrés pour pouvoir pratiquer à son rythme.",
       "contact": { "website": "#", "bookingUrl": "#", "email": "contact@example.test" },
-      "socialLinks": { "instagram": "#", "youtube": "#" }
+      "socialLinks": { "instagram": "#", "youtube": "#" },
+      "discount": {
+        "percentage": 10,
+        "description": "-10% sur les cours collectifs pour les adhérent·es de l’association, sur présentation de la carte de membre."
+      }
     }
   },
   {

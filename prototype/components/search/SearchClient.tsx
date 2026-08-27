@@ -114,6 +114,10 @@ export default function SearchClient() {
     updateFilters({ ...filters, verifiedOnly: !filters.verifiedOnly });
   }
 
+  function togglePartners() {
+    updateFilters({ ...filters, partnersOnly: !filters.partnersOnly });
+  }
+
   function resetAll() {
     setQuery("");
     updateFilters({ ...EMPTY_FILTERS });
@@ -157,6 +161,7 @@ export default function SearchClient() {
           filters={filters}
           onToggleValue={toggleValue}
           onToggleVerified={toggleVerified}
+          onTogglePartners={togglePartners}
           onReset={resetAll}
         />
       </section>
@@ -166,6 +171,7 @@ export default function SearchClient() {
         onRemoveValue={removeValue}
         onClearType={() => handleTypeChange(null)}
         onToggleVerified={toggleVerified}
+        onTogglePartners={togglePartners}
         onReset={resetAll}
       />
 

@@ -109,6 +109,10 @@
     {
       "id": "mixed",
       "label": "Gratuit et payant"
+    },
+    {
+      "id": "offre_adherents",
+      "label": "Offre adhérent·es"
     }
   ],
   "professionalFamilies": [

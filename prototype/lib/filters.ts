@@ -17,6 +17,7 @@ export const EMPTY_FILTERS: FilterState = {
   disorderCategories: [],
   pricing: [],
   verifiedOnly: false,
+  partnersOnly: false,
   countries: [],
   consultationModes: [],
   professionalFamilies: [],
@@ -36,7 +37,9 @@ export const EMPTY_FILTERS: FilterState = {
 const ACCESSORS: Record<MultiFilterKey, (r: Resource) => string[]> = {
   objectives: (r) => r.objectives,
   disorderCategories: (r) => r.disorderCategories,
-  pricing: (r) => [r.pricing],
+  // "offre_adherents" is a pseudo-value of the Tarif group: any resource
+  // carrying an adherent discount answers to it, on top of its real pricing.
+  pricing: (r) => (r.professional?.discount ? [r.pricing, "offre_adherents"] : [r.pricing]),
   countries: (r) => [r.professional?.country, r.place?.country].filter(Boolean) as string[],
   consultationModes: (r) => r.professional?.consultationModes ?? [],
   professionalFamilies: (r) => (r.professional ? [r.professional.family] : []),
@@ -72,6 +75,7 @@ function matchesDimension(resource: Resource, key: MultiFilterKey, selected: str
 export function matches(resource: Resource, filters: FilterState): boolean {
   if (filters.resourceType && resource.resourceType !== filters.resourceType) return false;
   if (filters.verifiedOnly && !resource.isVerifiedByAssociation) return false;
+  if (filters.partnersOnly && !resource.isAssociationPartner) return false;
 
   // AND between dimensions.
   return MULTI_FILTER_KEYS.every((key) => matchesDimension(resource, key, filters[key]));
@@ -84,7 +88,12 @@ export function filterResources(list: Resource[], filters: FilterState): Resourc
 /** Counts everything shown as a removable chip, resource type included. */
 export function countActiveFilters(filters: FilterState): number {
   const multi = MULTI_FILTER_KEYS.reduce((total, key) => total + filters[key].length, 0);
-  return multi + (filters.verifiedOnly ? 1 : 0) + (filters.resourceType ? 1 : 0);
+  return (
+    multi +
+    (filters.verifiedOnly ? 1 : 0) +
+    (filters.partnersOnly ? 1 : 0) +
+    (filters.resourceType ? 1 : 0)
+  );
 }
 
 /**

@@ -156,6 +156,7 @@ export interface FilterState {
   disorderCategories: string[];
   pricing: string[];
   verifiedOnly: boolean;
+  partnersOnly: boolean;
 
   // Professionals.
   countries: string[];
