@@ -6,7 +6,6 @@ import ContentDetail from "@/components/detail/ContentDetail";
 import DemoActions from "@/components/detail/DemoActions";
 import PlaceDetail from "@/components/detail/PlaceDetail";
 import ProfessionalDetail from "@/components/detail/ProfessionalDetail";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -57,19 +56,20 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
       </Breadcrumb>
 
       {/* Same grid as the detail sections below, so the image column and the
-          first card share the same width and edges. */}
-      <header className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {/* The brief shows professionals with a round photo; no real photos here. */}
-        {resource.professional ? (
-          <Avatar className="size-40 md:size-56">
-            <AvatarFallback className="text-4xl">
-              {resource.professional.firstName[0]}
-              {resource.professional.lastName[0]}
-            </AvatarFallback>
-          </Avatar>
-        ) : (
-          <AspectRatio ratio={4 / 3} className="rounded-xl bg-gradient-to-br from-muted to-accent" />
-        )}
+          first card share the same width and edges. The image panel stretches
+          to the text block's height so both header blocks stay equal. */}
+      <header className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="flex min-h-56 items-center justify-center rounded-xl bg-gradient-to-br from-muted to-accent">
+          {/* The brief shows professionals with a round photo; no real photos here. */}
+          {resource.professional ? (
+            <Avatar className="size-40">
+              <AvatarFallback className="bg-background text-4xl">
+                {resource.professional.firstName[0]}
+                {resource.professional.lastName[0]}
+              </AvatarFallback>
+            </Avatar>
+          ) : null}
+        </div>
 
         <div className="space-y-3 xl:col-span-2">
           <div className="flex flex-wrap gap-1">
