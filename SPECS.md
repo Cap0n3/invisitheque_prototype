@@ -20,6 +20,8 @@
 > **Rev. 5** — internal navigation no longer opens a new tab: result cards are plain same-tab links and the search is preserved through URL state + the Back button. Only outbound links keep `target="_blank"` (section 8.2).
 >
 > **Rev. 4** — the UI layer moved to Tailwind + shadcn/ui, and the resource type is now a real tab bar rather than a row of chips: presenting a single-choice dimension in the same shape as the cumulative filters made the hierarchy unreadable (sections 5, 8.2, 37).
+>
+> **Rev. 6** — the "Vérifié par Les Invisibles" badge, its `isVerifiedByAssociation` field and the "verified only" toggle filter were removed: the client's brief never asks for a per-resource verification label. It presents evaluation as a condition of entry ("Toutes seront évaluées suivant des critères précis"), which the contribution page's 3-step panel already shows. Trust now rests on peer recommendation (`recommendedBy`, `proposerOpinion`) and, in E3, user reviews (section 9.6). Verification never carried a relevance bonus, so sorting is unchanged.
 
 ---
 
@@ -176,7 +178,6 @@ Examples:
 - "Proposer une ressource"
 - "Aucun résultat exact"
 - "Ressources susceptibles de vous aider"
-- "Vérifié par Les Invisibles"
 - "Signaler l'absence de ressource sur ma maladie"
 
 Keep the tone accessible, calm and non-technical.
@@ -244,7 +245,7 @@ The following are **prototype decisions**, not confirmed production requirements
 - exact wording of generated seed content;
 - how highlighted resources are distinguished in the result grid;
 - the shape of the contribution form and its 3-step "Proposition / Vérification / Publication" panel;
-- how the verification and provenance signals are presented;
+- how the provenance signals are presented;
 - the `searchKeywords` disease-name mapping.
 
 Do not present prototype-specific assumptions as validated business requirements.
@@ -657,7 +658,7 @@ Include:
 
 A partner resource should be visually identifiable and may rank higher in one prototype scenario.
 
-In the brief, partnership is described as an "échange de visibilité" — a reciprocal visibility agreement, not an editorial quality judgement. Keep the badge wording neutral ("Partenaire des Invisibles") and distinct from the verification badge below.
+In the brief, partnership is described as an "échange de visibilité" — a reciprocal visibility agreement, not an editorial quality judgement. Keep the badge wording neutral ("Partenaire des Invisibles"): it is not a quality mark.
 
 ---
 
@@ -665,19 +666,19 @@ In the brief, partnership is described as an "échange de visibilité" — a rec
 
 This is central to the brief's positioning — "un repère de confiance", resources "recommandées par celles et ceux qui vivent avec l'Invisible" and "évaluées suivant des critères précis, définis avec l'aide de bénévoles qualifié·es de l'association".
 
-Three **distinct** signals must not be conflated:
+Two **distinct** signals must not be conflated:
 
-1. **Association verification** — the resource was reviewed by qualified volunteers against defined criteria. Boolean `isVerifiedByAssociation`, badge "Vérifié par Les Invisibles". Applies to every resource type. Available from V1.
-2. **Peer recommendation** — who proposed the resource and why. Field `recommendedBy` (fictional first name / "Un·e bénévole de l'association") plus, for cultural content, the existing `proposerOpinion`.
-3. **User ratings and reviews** — E3 only, fake data, demo UI.
+1. **Peer recommendation** — who proposed the resource and why. Field `recommendedBy` (fictional first name / "Un·e bénévole de l'association") plus, for cultural content, the existing `proposerOpinion`.
+2. **User ratings and reviews** — E3 only, fake data, demo UI.
+
+There is deliberately **no per-resource "verified" badge** (removed in rev. 6). The brief presents evaluation as a condition of entry — every listed resource "sera évaluée suivant des critères précis" — not as a distinction between listed resources, and it never asks for such a label. The review step stays visible where the brief grounds it: the contribution page's "Proposition / Vérification / Publication" panel.
 
 For the prototype:
 
-- show the verification badge on cards and detail pages;
 - show `recommendedBy` on detail pages;
-- optionally expose a single "Vérifié par l'association" toggle filter, to test whether users would want it.
+- show `proposerOpinion` on cultural-content detail pages.
 
-The evaluation criteria themselves are not defined yet. Do not invent a scoring scale — a binary badge is enough to open the discussion.
+The evaluation criteria themselves are not defined yet. Do not invent a scoring scale or a verification mark.
 
 ---
 
@@ -806,7 +807,7 @@ For this prototype:
 
 - use a **uniform card grid** — every result carries the same visual weight;
 - no wide cards, no spanning, no masonry;
-- highlighting happens through **badges** (verified, partner, upcoming circle) and through
+- highlighting happens through **badges** (partner, upcoming circle) and through
   **sort order**, not through card size;
 - editorial highlighting stays confined to the home page "À la une" section.
 
@@ -822,7 +823,6 @@ Suggested card anatomy:
 - title;
 - 1 short description;
 - 2 to 4 useful metadata chips;
-- "Vérifié par Les Invisibles" badge if relevant;
 - partner/event badge if relevant;
 - discount macaron (for example "-15%") if the professional offers an adherent discount;
 - "Voir la fiche" CTA (internal link, same tab).
@@ -848,7 +848,7 @@ The page should include:
 - resource type;
 - resource title/name;
 - relevant tags;
-- verification badge and `recommendedBy` provenance line;
+- `recommendedBy` provenance line;
 - main description;
 - resource-specific information;
 - external "En savoir plus" CTA.
@@ -1136,7 +1136,6 @@ interface BaseResource {
   pricing: "free" | "paid" | "mixed";
 
   isFeatured: boolean;
-  isVerifiedByAssociation: boolean;
   recommendedBy: string | null;   // fictional peer or "Un·e bénévole de l'association"
   isAssociationPartner: boolean;
   hasUpcomingAssociationEvent: boolean;
@@ -1405,8 +1404,6 @@ Recommended distribution:
 - 1 practical tool *(candidate type)*;
 - 1 program/training *(candidate type)*.
 
-Roughly two thirds of the records should have `isVerifiedByAssociation = true`, so both states are visible in the grid.
-
 The goal is not realism by volume. The goal is **coverage of interaction scenarios**.
 
 ---
@@ -1426,7 +1423,6 @@ Ensure the generated test records include the following combinations.
 - family `therapies_psy`, psychology or psychotherapy;
 - paid;
 - adherent discount (for example -15%), so the macaron is demonstrable;
-- verified by the association;
 - normal relevance.
 
 ### Professional B
@@ -1445,8 +1441,7 @@ Ensure the generated test records include the following combinations.
 - in person;
 - digestive disorders;
 - family `bien_etre_corporel`, sophrology / relaxation;
-- paid;
-- not verified by the association, to show the badge's absence.
+- paid.
 
 ### Professional D
 
@@ -1530,7 +1525,6 @@ Use this as structural guidance, not mandatory copy.
   "searchKeywords": ["fibromyalgie", "syndrome de fatigue chronique", "EM/SFC"],
   "pricing": "paid",
   "isFeatured": true,
-  "isVerifiedByAssociation": true,
   "recommendedBy": "Un·e bénévole de l'association",
   "isAssociationPartner": false,
   "hasUpcomingAssociationEvent": false,
@@ -1599,7 +1593,6 @@ Use `.test`, `#`, or obvious placeholder URLs where appropriate.
   "searchKeywords": ["fatigue chronique", "EM/SFC"],
   "pricing": "free",
   "isFeatured": true,
-  "isVerifiedByAssociation": true,
   "recommendedBy": "Léa, membre de la communauté",
   "isAssociationPartner": false,
   "hasUpcomingAssociationEvent": false,
@@ -1691,7 +1684,7 @@ Show the "Outils pratiques" and "Programmes et formations" records, and discuss 
 
 ## Scenario H: trust signals
 
-Compare a verified resource, a partner resource and a plain resource side by side, and confirm that the three badges read as three different things.
+Compare a partner resource, a resource with an upcoming circle and a plain resource side by side, and confirm that the two badges read as two different things and that neither reads as a quality mark.
 
 ---
 
@@ -1767,8 +1760,6 @@ interface FilterState {
   objectives: string[];
   disorderCategories: string[];
   pricing: string[];
-
-  verifiedOnly: boolean;
 
   countries: string[];
   consultationModes: string[];
@@ -2016,7 +2007,7 @@ The prototype is complete when all of the following are true.
 - result count updates;
 - sorting changes order;
 - primary filters are visible and secondary filters sit behind "Plus de filtres";
-- cards display representative metadata, including verification/partner/event/discount badges;
+- cards display representative metadata, including partner/event/discount badges;
 - load-more works;
 - no-result state is demonstrable, with both the "proposer" and "signaler" CTAs;
 - searching a precise disease name returns the matching broad category;
@@ -2114,7 +2105,7 @@ These are unresolved points where the prototype takes a position that the brief 
 1. **Resource types** — the brief's primary filter lists 6 types ("Professionnel, Contenu culturel, Outil pratique, Programmes/Formations, Lieu/association, Institution"), the catalog describes 4 families, and the fiches describe 3 structures. Which set drives the tabs?
 2. **Practical tools and programs/trainings** — own type, format, or support-space category?
 3. **Professional families vs specialties** — is the family level enough to filter on?
-4. **Verification** — should "Vérifié par Les Invisibles" appear on cards, and is it a filter? What are the criteria, and who applies them?
+4. **Verification** — *closed in rev. 6*: the badge and the toggle filter were removed because the brief never asks for a per-resource verification label. Still open, upstream of the UI: what are the evaluation criteria, and who applies them?
 5. **Filter placement** — top bar with expandable panel (as in the client's reference images) or left sidebar?
 6. **Which filters are primary vs behind "Plus de filtres"?**
 7. **Disease names** — filters use broad disorder types, but users search by disease name. Is a keyword mapping acceptable, and who maintains it?

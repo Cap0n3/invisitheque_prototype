@@ -24,14 +24,12 @@ export default function ActiveFilterChips({
   filters,
   onRemoveValue,
   onClearType,
-  onToggleVerified,
   onTogglePartners,
   onReset,
 }: {
   filters: FilterState;
   onRemoveValue: (key: MultiFilterKey, id: string) => void;
   onClearType: () => void;
-  onToggleVerified: () => void;
   onTogglePartners: () => void;
   onReset: () => void;
 }) {
@@ -44,7 +42,7 @@ export default function ActiveFilterChips({
   );
 
   const hasAnything =
-    chips.length > 0 || filters.resourceType || filters.verifiedOnly || filters.partnersOnly;
+    chips.length > 0 || filters.resourceType || filters.partnersOnly;
   if (!hasAnything) return null;
 
   return (
@@ -53,10 +51,6 @@ export default function ActiveFilterChips({
 
       {filters.resourceType ? (
         <RemovableChip text={`Type : ${typeLabel(filters.resourceType)}`} onRemove={onClearType} />
-      ) : null}
-
-      {filters.verifiedOnly ? (
-        <RemovableChip text="Vérifié par l’association" onRemove={onToggleVerified} />
       ) : null}
 
       {filters.partnersOnly ? (

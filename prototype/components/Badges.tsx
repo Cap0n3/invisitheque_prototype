@@ -1,22 +1,15 @@
-import { BadgeCheck, CalendarHeart, Handshake } from "lucide-react";
+import { CalendarHeart, Handshake } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Resource } from "@/lib/types";
 
 /**
- * Three distinct signals (spec 9.6) - never merge them:
- * association verification, partnership, upcoming wellbeing circle.
+ * Two distinct signals (spec 9.5 / 9.6) - never merge them:
+ * partnership, upcoming wellbeing circle. Neither is a quality mark.
  * Each badge carries its meaning in its text, not in its color alone.
  */
 export default function Badges({ resource }: { resource: Resource }) {
   return (
     <>
-      {resource.isVerifiedByAssociation ? (
-        <Badge className="bg-verified text-verified-foreground">
-          <BadgeCheck aria-hidden="true" />
-          Vérifié par Les Invisibles
-        </Badge>
-      ) : null}
-
       {resource.isAssociationPartner ? (
         <Badge className="bg-partner text-partner-foreground">
           <Handshake aria-hidden="true" />

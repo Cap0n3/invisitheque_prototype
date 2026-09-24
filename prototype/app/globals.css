@@ -6,7 +6,7 @@
 
 /**
  * Palette : neutres chauds + un vert calme comme couleur primaire.
- * Les tons de badges (vérifié / partenaire / cercle) sont sémantiques :
+ * Les tons de badges (partenaire / cercle) sont sémantiques :
  * un badge ne repose jamais sur la couleur seule, son texte porte le sens.
  */
 :root {
@@ -39,8 +39,6 @@
   --ring: oklch(0.47 0.055 168);
 
   /* Signaux de confiance et de priorité */
-  --verified: oklch(0.94 0.03 165);
-  --verified-foreground: oklch(0.4 0.06 165);
   --partner: oklch(0.94 0.045 80);
   --partner-foreground: oklch(0.44 0.07 68);
   --event: oklch(0.94 0.03 255);
@@ -66,8 +64,6 @@
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.72 0.07 168);
-  --verified: oklch(0.34 0.05 165);
-  --verified-foreground: oklch(0.9 0.05 165);
   --partner: oklch(0.36 0.05 80);
   --partner-foreground: oklch(0.92 0.05 85);
   --event: oklch(0.34 0.05 262);
@@ -97,8 +93,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-verified: var(--verified);
-  --color-verified-foreground: var(--verified-foreground);
   --color-partner: var(--partner);
   --color-partner-foreground: var(--partner-foreground);
   --color-event: var(--event);

@@ -22,13 +22,11 @@ import type { FilterState, MultiFilterKey } from "@/lib/types";
 export default function FilterBar({
   filters,
   onToggleValue,
-  onToggleVerified,
   onTogglePartners,
   onReset,
 }: {
   filters: FilterState;
   onToggleValue: (key: MultiFilterKey, id: string) => void;
-  onToggleVerified: () => void;
   onTogglePartners: () => void;
   onReset: () => void;
 }) {
@@ -92,18 +90,8 @@ export default function FilterBar({
 
             <Field>
               <FieldLabel className="text-xs tracking-wide text-muted-foreground uppercase">
-                Confiance
+                Partenariat
               </FieldLabel>
-              <Field orientation="horizontal">
-                <Checkbox
-                  id="verified-only"
-                  checked={filters.verifiedOnly}
-                  onCheckedChange={onToggleVerified}
-                />
-                <FieldLabel htmlFor="verified-only" className="font-normal">
-                  Uniquement les ressources vérifiées par l’association
-                </FieldLabel>
-              </Field>
               <Field orientation="horizontal">
                 <Checkbox
                   id="partners-only"

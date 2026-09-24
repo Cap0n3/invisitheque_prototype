@@ -16,7 +16,6 @@ export const EMPTY_FILTERS: FilterState = {
   objectives: [],
   disorderCategories: [],
   pricing: [],
-  verifiedOnly: false,
   partnersOnly: false,
   countries: [],
   consultationModes: [],
@@ -74,7 +73,6 @@ function matchesDimension(resource: Resource, key: MultiFilterKey, selected: str
 
 export function matches(resource: Resource, filters: FilterState): boolean {
   if (filters.resourceType && resource.resourceType !== filters.resourceType) return false;
-  if (filters.verifiedOnly && !resource.isVerifiedByAssociation) return false;
   if (filters.partnersOnly && !resource.isAssociationPartner) return false;
 
   // AND between dimensions.
@@ -90,7 +88,6 @@ export function countActiveFilters(filters: FilterState): number {
   const multi = MULTI_FILTER_KEYS.reduce((total, key) => total + filters[key].length, 0);
   return (
     multi +
-    (filters.verifiedOnly ? 1 : 0) +
     (filters.partnersOnly ? 1 : 0) +
     (filters.resourceType ? 1 : 0)
   );

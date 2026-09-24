@@ -18,7 +18,6 @@ erDiagram
         text short_description
         varchar image
         enum pricing "free | paid | mixed"
-        bool is_verified_by_association
         bool is_association_partner
         bool is_featured
         bool is_published

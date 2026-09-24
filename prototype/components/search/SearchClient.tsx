@@ -110,10 +110,6 @@ export default function SearchClient() {
     updateFilters({ ...filters, [key]: filters[key].filter((value) => value !== id) });
   }
 
-  function toggleVerified() {
-    updateFilters({ ...filters, verifiedOnly: !filters.verifiedOnly });
-  }
-
   function togglePartners() {
     updateFilters({ ...filters, partnersOnly: !filters.partnersOnly });
   }
@@ -160,7 +156,6 @@ export default function SearchClient() {
         <FilterBar
           filters={filters}
           onToggleValue={toggleValue}
-          onToggleVerified={toggleVerified}
           onTogglePartners={togglePartners}
           onReset={resetAll}
         />
@@ -170,7 +165,6 @@ export default function SearchClient() {
         filters={filters}
         onRemoveValue={removeValue}
         onClearType={() => handleTypeChange(null)}
-        onToggleVerified={toggleVerified}
         onTogglePartners={togglePartners}
         onReset={resetAll}
       />

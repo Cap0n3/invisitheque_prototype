@@ -101,7 +101,6 @@ export interface Resource {
   pricing: Pricing;
 
   isFeatured: boolean;
-  isVerifiedByAssociation: boolean;
   recommendedBy: string | null;
   isAssociationPartner: boolean;
   hasUpcomingAssociationEvent: boolean;
@@ -155,7 +154,6 @@ export interface FilterState {
   objectives: string[];
   disorderCategories: string[];
   pricing: string[];
-  verifiedOnly: boolean;
   partnersOnly: boolean;
 
   // Professionals.

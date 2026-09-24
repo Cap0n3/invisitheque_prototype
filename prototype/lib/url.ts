@@ -29,7 +29,6 @@ export function parseSearchParams(params: URLSearchParams): SearchUrlState {
     if (raw) filters[key] = raw.split(",").filter(Boolean);
   }
 
-  filters.verifiedOnly = params.get("verified") === "1";
   filters.partnersOnly = params.get("partners") === "1";
 
   const sort = params.get("sort");
@@ -52,7 +51,6 @@ export function buildSearchParams(state: SearchUrlState): string {
     if (values.length > 0) params.set(key, values.join(","));
   }
 
-  if (state.filters.verifiedOnly) params.set("verified", "1");
   if (state.filters.partnersOnly) params.set("partners", "1");
   if (state.sort !== "relevance") params.set("sort", state.sort);
 
