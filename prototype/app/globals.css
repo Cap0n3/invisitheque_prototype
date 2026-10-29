@@ -122,6 +122,11 @@
   h3 {
     @apply font-semibold tracking-tight;
   }
+  /* Tailwind 4 dropped the pointer cursor on buttons; shadcn's recommended reset. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
