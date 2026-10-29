@@ -1,10 +1,8 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { CANDIDATE_TYPES, TAB_TYPES } from "@/lib/config";
-import { typeLabel, typeTabLabel } from "@/lib/data";
+import { TAB_TYPES } from "@/lib/config";
+import { typeTabLabel } from "@/lib/data";
 import type { ResourceType } from "@/lib/types";
 
 const ALL = "all";
@@ -40,20 +38,6 @@ export default function ResourceTypeTabs({
             <TabsTrigger key={type} value={type} className={TRIGGER_CLASS}>
               {/* Short label here, full label everywhere else (data/taxonomy.json). */}
               {typeTabLabel(type)}
-
-              {/* Candidate types are flagged so they never read as validated scope. */}
-              {CANDIDATE_TYPES.includes(type) ? (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge variant="secondary" className="font-normal">
-                      à valider
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {typeLabel(type)} — type de ressource candidat, à arbitrer avec l’association.
-                  </TooltipContent>
-                </Tooltip>
-              ) : null}
             </TabsTrigger>
           ))}
         </TabsList>

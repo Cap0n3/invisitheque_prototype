@@ -30,6 +30,7 @@ export function parseSearchParams(params: URLSearchParams): SearchUrlState {
   }
 
   filters.partnersOnly = params.get("partners") === "1";
+  filters.associationContentOnly = params.get("associationContent") === "1";
 
   const sort = params.get("sort");
 
@@ -52,6 +53,7 @@ export function buildSearchParams(state: SearchUrlState): string {
   }
 
   if (state.filters.partnersOnly) params.set("partners", "1");
+  if (state.filters.associationContentOnly) params.set("associationContent", "1");
   if (state.sort !== "relevance") params.set("sort", state.sort);
 
   return params.toString();

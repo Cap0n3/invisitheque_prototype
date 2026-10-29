@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Bookmark, BookOpen, Building2, CalendarRange, Users, UserRound, Wrench } from "lucide-react";
+import { Bookmark, BookOpen, Building2, Users, UserRound, Wrench } from "lucide-react";
 import { toast } from "sonner";
 import Badges from "./Badges";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -17,10 +17,9 @@ import type { Resource, ResourceType } from "@/lib/types";
 const TYPE_ICON: Record<ResourceType, typeof UserRound> = {
   professional: UserRound,
   cultural_content: BookOpen,
-  support_space: Users,
-  institution_partner: Building2,
   practical_tool: Wrench,
-  program_training: CalendarRange,
+  activity_support: Users,
+  organization_place: Building2,
 };
 
 export default function ResourceCard({ resource }: { resource: Resource }) {

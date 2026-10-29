@@ -2,31 +2,23 @@
   "resourceTypes": [
     {
       "id": "professional",
-      "label": "Professionnel·les"
+      "label": "Professionnel·es"
     },
     {
       "id": "cultural_content",
-      "label": "Contenus"
-    },
-    {
-      "id": "support_space",
-      "label": "Dispositifs et espaces",
-      "shortLabel": "Dispositifs"
-    },
-    {
-      "id": "institution_partner",
-      "label": "Institutions et partenaires",
-      "shortLabel": "Institutions"
+      "label": "Contenus et médias"
     },
     {
       "id": "practical_tool",
-      "label": "Outils pratiques",
-      "shortLabel": "Outils"
+      "label": "Outils pratiques"
     },
     {
-      "id": "program_training",
-      "label": "Programmes et formations",
-      "shortLabel": "Programmes"
+      "id": "activity_support",
+      "label": "Activités et accompagnements"
+    },
+    {
+      "id": "organization_place",
+      "label": "Organisations et lieux"
     }
   ],
   "objectives": [
@@ -115,65 +107,108 @@
       "label": "Offre adhérent·es"
     }
   ],
-  "professionalFamilies": [
-    {
-      "id": "coaching_developpement",
-      "label": "Coaching et développement personnel"
-    },
-    {
-      "id": "therapies_psy",
-      "label": "Thérapies et accompagnement psychologique"
-    },
-    {
-      "id": "bien_etre_corporel",
-      "label": "Bien-être corporel et relaxation"
-    }
-  ],
   "specialties": [
     {
       "id": "coaching",
-      "label": "Coaching",
-      "parent": "coaching_developpement"
+      "label": "Coaching"
     },
     {
       "id": "psychologie",
-      "label": "Psychologie",
-      "parent": "therapies_psy"
-    },
-    {
-      "id": "gestion_stress",
-      "label": "Gestion du stress",
-      "parent": "therapies_psy"
+      "label": "Psychologie"
     },
     {
       "id": "psychotherapie",
-      "label": "Psychothérapie",
-      "parent": "therapies_psy"
+      "label": "Psychothérapie"
     },
     {
       "id": "hypnose",
-      "label": "Hypnose",
-      "parent": "therapies_psy"
-    },
-    {
-      "id": "ergotherapie",
-      "label": "Ergothérapie",
-      "parent": "therapies_psy"
+      "label": "Hypnose"
     },
     {
       "id": "sophrologie",
-      "label": "Sophrologie",
-      "parent": "bien_etre_corporel"
+      "label": "Sophrologie"
     },
     {
-      "id": "yoga",
-      "label": "Yoga",
-      "parent": "bien_etre_corporel"
+      "id": "yoga_adapte",
+      "label": "Yoga adapté"
     },
     {
       "id": "relaxation",
-      "label": "Relaxation",
-      "parent": "bien_etre_corporel"
+      "label": "Relaxation"
+    },
+    {
+      "id": "acupuncture",
+      "label": "Acupuncture"
+    },
+    {
+      "id": "naturopathie",
+      "label": "Naturopathie"
+    },
+    {
+      "id": "reflexologie",
+      "label": "Réflexologie"
+    },
+    {
+      "id": "massage_bien_etre",
+      "label": "Massage bien-être"
+    },
+    {
+      "id": "meditation_pleine_conscience",
+      "label": "Méditation et pleine conscience"
+    },
+    {
+      "id": "art_therapie",
+      "label": "Art-thérapie"
+    },
+    {
+      "id": "physiotherapie",
+      "label": "Physiothérapie"
+    }
+  ],
+  "professionalTopics": [
+    {
+      "id": "douleurs_chroniques",
+      "label": "Douleurs chroniques"
+    },
+    {
+      "id": "fatigue_energie",
+      "label": "Fatigue et gestion de l’énergie"
+    },
+    {
+      "id": "stress_anxiete",
+      "label": "Stress et anxiété"
+    },
+    {
+      "id": "gestion_emotions",
+      "label": "Gestion des émotions"
+    },
+    {
+      "id": "sommeil_recuperation",
+      "label": "Sommeil et récupération"
+    },
+    {
+      "id": "confiance_estime_de_soi",
+      "label": "Confiance et estime de soi"
+    },
+    {
+      "id": "organisation_quotidien_autonomie",
+      "label": "Organisation du quotidien et autonomie"
+    },
+    {
+      "id": "relations_communication",
+      "label": "Relations et communication"
+    },
+    {
+      "id": "vie_professionnelle_equilibre",
+      "label": "Vie professionnelle et équilibre de vie"
+    },
+    {
+      "id": "detente_relaxation",
+      "label": "Détente et relaxation"
+    },
+    {
+      "id": "mouvement_activite_physique",
+      "label": "Mouvement et activité physique adaptée"
     }
   ],
   "countries": [
@@ -192,6 +227,10 @@
     {
       "id": "CA",
       "label": "Canada"
+    },
+    {
+      "id": "other",
+      "label": "Autre (international)"
     }
   ],
   "consultationModes": [
@@ -260,14 +299,6 @@
     {
       "id": "association_article",
       "label": "Article de l’association"
-    },
-    {
-      "id": "atelier",
-      "label": "Atelier"
-    },
-    {
-      "id": "service",
-      "label": "Service"
     }
   ],
   "mediaGenres": [
@@ -322,52 +353,6 @@
       "label": "Association"
     }
   ],
-  "supportCategories": [
-    {
-      "id": "peer_group",
-      "label": "Groupe de parole"
-    },
-    {
-      "id": "wellbeing_space",
-      "label": "Espace de bien-être"
-    },
-    {
-      "id": "accessible_cultural_place",
-      "label": "Lieu culturel accessible"
-    },
-    {
-      "id": "care_center",
-      "label": "Centre de soins"
-    },
-    {
-      "id": "rehabilitation_center",
-      "label": "Centre de réadaptation"
-    },
-    {
-      "id": "collaborative_platform",
-      "label": "Plateforme collaborative"
-    },
-    {
-      "id": "forum",
-      "label": "Forum d’échange"
-    },
-    {
-      "id": "administrative_support",
-      "label": "Soutien administratif"
-    },
-    {
-      "id": "social_orientation",
-      "label": "Orientation sociale"
-    },
-    {
-      "id": "association_circle",
-      "label": "Cercle de l’association"
-    },
-    {
-      "id": "programme_formation",
-      "label": "Programme / formation"
-    }
-  ],
   "institutionCategories": [
     {
       "id": "association",
@@ -388,6 +373,58 @@
     {
       "id": "university",
       "label": "Université"
+    },
+    {
+      "id": "other_organization",
+      "label": "Autre organisation"
+    }
+  ],
+  "placeCategories": [
+    {
+      "id": "wellbeing_relaxation_space",
+      "label": "Espace de bien-être et de relaxation"
+    },
+    {
+      "id": "meeting_support_place",
+      "label": "Lieu de rencontre et de soutien"
+    },
+    {
+      "id": "inclusive_cultural_leisure_place",
+      "label": "Lieu culturel et de loisirs inclusif"
+    },
+    {
+      "id": "respite_place",
+      "label": "Lieu de ressourcement et de répit"
+    },
+    {
+      "id": "adapted_physical_activity_place",
+      "label": "Lieu d’activité physique adaptée"
+    }
+  ],
+  "activityCategories": [
+    {
+      "id": "wellbeing_circle",
+      "label": "Cercle mieux-être"
+    },
+    {
+      "id": "peer_group",
+      "label": "Groupe de parole"
+    },
+    {
+      "id": "workshop",
+      "label": "Atelier"
+    },
+    {
+      "id": "program_training",
+      "label": "Programme / formation"
+    },
+    {
+      "id": "helpline",
+      "label": "Ligne d’écoute"
+    },
+    {
+      "id": "admin_social_support",
+      "label": "Accompagnement administratif et social"
     }
   ],
   "deliveryModes": [
@@ -397,7 +434,7 @@
     },
     {
       "id": "digital",
-      "label": "Digital"
+      "label": "En ligne"
     },
     {
       "id": "hybrid",

@@ -8,7 +8,7 @@
  * Both rules live in `matches()` so they can be changed in one place.
  */
 
-import { FILTER_LAYOUT, RELAX_ORDER } from "./config";
+import { ASSOCIATION_CONTENT_TYPES, FILTER_LAYOUT, RELAX_ORDER } from "./config";
 import type { FilterState, MultiFilterKey, Resource, ResourceType } from "./types";
 
 export const EMPTY_FILTERS: FilterState = {
@@ -17,15 +17,16 @@ export const EMPTY_FILTERS: FilterState = {
   disorderCategories: [],
   pricing: [],
   partnersOnly: false,
+  associationContentOnly: false,
   countries: [],
   consultationModes: [],
-  professionalFamilies: [],
   specialties: [],
   mediaFormats: [],
   mediaGenres: [],
   pointsOfView: [],
-  supportCategories: [],
   institutionCategories: [],
+  placeCategories: [],
+  activityCategories: [],
   deliveryModes: [],
 };
 
@@ -41,13 +42,13 @@ const ACCESSORS: Record<MultiFilterKey, (r: Resource) => string[]> = {
   pricing: (r) => (r.professional?.discount ? [r.pricing, "offre_adherents"] : [r.pricing]),
   countries: (r) => [r.professional?.country, r.place?.country].filter(Boolean) as string[],
   consultationModes: (r) => r.professional?.consultationModes ?? [],
-  professionalFamilies: (r) => (r.professional ? [r.professional.family] : []),
   specialties: (r) => r.professional?.specialties.map((s) => s.id) ?? [],
   mediaFormats: (r) => (r.culturalContent ? [r.culturalContent.format] : []),
   mediaGenres: (r) => (r.culturalContent ? [r.culturalContent.genre] : []),
   pointsOfView: (r) => (r.culturalContent ? [r.culturalContent.pointOfView] : []),
-  supportCategories: (r) => (r.place ? [r.place.category] : []),
-  institutionCategories: (r) => (r.place ? [r.place.category] : []),
+  institutionCategories: (r) => (r.place?.organizationType ? [r.place.organizationType] : []),
+  placeCategories: (r) => (r.place?.placeType ? [r.place.placeType] : []),
+  activityCategories: (r) => (r.place?.activityType ? [r.place.activityType] : []),
   deliveryModes: (r) => (r.place ? [r.place.deliveryMode] : []),
 };
 
@@ -74,6 +75,9 @@ function matchesDimension(resource: Resource, key: MultiFilterKey, selected: str
 export function matches(resource: Resource, filters: FilterState): boolean {
   if (filters.resourceType && resource.resourceType !== filters.resourceType) return false;
   if (filters.partnersOnly && !resource.isAssociationPartner) return false;
+  if (filters.associationContentOnly && !resource.culturalContent?.createdByAssociation) {
+    return false;
+  }
 
   // AND between dimensions.
   return MULTI_FILTER_KEYS.every((key) => matchesDimension(resource, key, filters[key]));
@@ -89,6 +93,7 @@ export function countActiveFilters(filters: FilterState): number {
   return (
     multi +
     (filters.partnersOnly ? 1 : 0) +
+    (filters.associationContentOnly ? 1 : 0) +
     (filters.resourceType ? 1 : 0)
   );
 }
@@ -130,6 +135,11 @@ export function isFilterRelevant(key: MultiFilterKey, type: ResourceType | null)
   return layout.primary.includes(key) || layout.advanced.includes(key);
 }
 
+/** Same single-source rule for the « contenus créés par Les Invisibles » checkbox. */
+export function offersAssociationContentFilter(type: ResourceType | null): boolean {
+  return type !== null && ASSOCIATION_CONTENT_TYPES.includes(type);
+}
+
 /**
  * When the resource type changes, keep compatible filters and clear the rest.
  */
@@ -138,5 +148,6 @@ export function pruneIrrelevantFilters(filters: FilterState): FilterState {
   for (const key of MULTI_FILTER_KEYS) {
     if (!isFilterRelevant(key, filters.resourceType)) next[key] = [];
   }
+  if (!offersAssociationContentFilter(filters.resourceType)) next.associationContentOnly = false;
   return next;
 }

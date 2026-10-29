@@ -1,22 +1,33 @@
 import { DataList, DetailSection, LinkList } from "./DetailSection";
 import { label } from "@/lib/data";
-import type { PlaceDetails, ResourceType } from "@/lib/types";
+import type { PlaceDetails } from "@/lib/types";
 
 /**
- * The brief groups support spaces and institutions/partners into a single
- * record structure; programs/trainings (a candidate type) reuse it.
+ * One record structure for « Organisations et lieux » and « Activités et
+ * accompagnements » (the brief already grouped support spaces and institutions).
+ * Only the category rows differ, driven by the fields the record carries.
  */
 export default function PlaceDetail({
   details,
-  resourceType,
   isAssociationPartner,
 }: {
   details: PlaceDetails;
-  resourceType: ResourceType;
   isAssociationPartner: boolean;
 }) {
-  const categoryTaxonomy =
-    resourceType === "institution_partner" ? "institutionCategories" : "supportCategories";
+  const categoryRows = [
+    details.organizationType
+      ? {
+          label: "Type d’organisation",
+          value: label("institutionCategories", details.organizationType),
+        }
+      : null,
+    details.placeType
+      ? { label: "Type de lieu", value: label("placeCategories", details.placeType) }
+      : null,
+    details.activityType
+      ? { label: "Type d’activité", value: label("activityCategories", details.activityType) }
+      : null,
+  ].filter(Boolean) as Array<{ label: string; value: string }>;
 
   const links = [
     details.website ? { label: "Site internet", href: details.website } : null,
@@ -29,7 +40,7 @@ export default function PlaceDetail({
         <p>{details.presentation}</p>
         <DataList
           rows={[
-            { label: "Type", value: label(categoryTaxonomy, details.category) },
+            ...categoryRows,
             {
               label: "Accès",
               value: [

@@ -6,23 +6,19 @@
  * labels live in data/taxonomy.json only.
  */
 
+/** The five resource categories validated by the client (October 2026 feedback). */
 export type ResourceType =
   | "professional"
   | "cultural_content"
-  | "support_space"
-  | "institution_partner"
-  // Candidate types (spec 9.1) - to arbitrate with the client.
   | "practical_tool"
-  | "program_training";
+  | "activity_support"
+  | "organization_place";
 
 export type Pricing = "free" | "paid" | "mixed";
-export type Country = "CH" | "FR" | "BE" | "CA";
+/** "other" = international resource, no single country (client: « Autre »). */
+export type Country = "CH" | "FR" | "BE" | "CA" | "other";
 export type ConsultationMode = "in_person" | "remote" | "hybrid";
 export type DeliveryMode = "in_person" | "digital" | "hybrid";
-export type ProfessionalFamily =
-  | "coaching_developpement"
-  | "therapies_psy"
-  | "bien_etre_corporel";
 
 export interface Specialty {
   id: string;
@@ -33,11 +29,12 @@ export interface Specialty {
 export interface ProfessionalDetails {
   firstName: string;
   lastName: string;
-  family: ProfessionalFamily;
   country: Country;
   city: string;
   consultationModes: ConsultationMode[];
   specialties: Specialty[];
+  /** « Thématiques abordées » - ids from taxonomy.professionalTopics. */
+  topics: string[];
   presentation: string;
   contact: {
     website?: string;
@@ -61,6 +58,10 @@ export interface CulturalContentDetails {
   authors: string[];
   /** Renders "<first author> et cie" in the UI (brief rule). */
   hasMultipleAuthors: boolean;
+  /** Produced by Les Invisibles - drives the « Uniquement les contenus créés par
+   *  Les Invisibles » checkbox. Distinct from pointOfView "association", which
+   *  any association can carry. */
+  createdByAssociation: boolean;
   format: string;
   genre: string;
   pointOfView: string;
@@ -70,9 +71,18 @@ export interface CulturalContentDetails {
   links: Array<{ label: string; url: string }>;
 }
 
-/** Shared by support spaces, institutions/partners and program/training records. */
+/**
+ * Shared by « Organisations et lieux » and « Activités et accompagnements ».
+ * The category fields say what the record is: an organisation, a physical place
+ * (possibly both - an association running a respite house), or an activity.
+ */
 export interface PlaceDetails {
-  category: string;
+  /** taxonomy.institutionCategories - organisations. */
+  organizationType?: string;
+  /** taxonomy.placeCategories - physical, non-medical places. */
+  placeType?: string;
+  /** taxonomy.activityCategories - activities and support services. */
+  activityType?: string;
   deliveryMode: DeliveryMode;
   country?: Country;
   city?: string;
@@ -124,7 +134,7 @@ export interface TaxonomyItem {
   label: string;
   /** Compact label, used where space is tight (tabs). */
   shortLabel?: string;
-  /** Optional grouping, e.g. specialties nested under a professional family. */
+  /** Optional grouping (unused today, kept for the production taxonomy_term.parent). */
   parent?: string;
 }
 
@@ -133,15 +143,16 @@ export type TaxonomyKey =
   | "objectives"
   | "disorderCategories"
   | "pricing"
-  | "professionalFamilies"
   | "specialties"
+  | "professionalTopics"
   | "countries"
   | "consultationModes"
   | "mediaFormats"
   | "mediaGenres"
   | "pointsOfView"
-  | "supportCategories"
   | "institutionCategories"
+  | "placeCategories"
+  | "activityCategories"
   | "deliveryModes";
 
 export type Taxonomy = Record<TaxonomyKey, TaxonomyItem[]>;
@@ -155,11 +166,12 @@ export interface FilterState {
   disorderCategories: string[];
   pricing: string[];
   partnersOnly: boolean;
+  /** « Uniquement les contenus créés par Les Invisibles » (Contenus et médias only). */
+  associationContentOnly: boolean;
 
-  // Professionals.
+  // Professionals (countries is shared with places and activities).
   countries: string[];
   consultationModes: string[];
-  professionalFamilies: string[];
   specialties: string[];
 
   // Cultural content / practical tools.
@@ -167,9 +179,10 @@ export interface FilterState {
   mediaGenres: string[];
   pointsOfView: string[];
 
-  // Support spaces / programs / institutions.
-  supportCategories: string[];
+  // Organisations and places / activities and support services.
   institutionCategories: string[];
+  placeCategories: string[];
+  activityCategories: string[];
   deliveryModes: string[];
 }
 

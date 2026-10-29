@@ -11,7 +11,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Field, FieldGroup, FieldLabel, FieldSeparator } from "@/components/ui/field";
 import { FILTER_GROUPS, FILTER_LAYOUT } from "@/lib/config";
 import { getTaxonomy } from "@/lib/data";
-import { countActiveFilters } from "@/lib/filters";
+import { countActiveFilters, offersAssociationContentFilter } from "@/lib/filters";
 import type { FilterState, MultiFilterKey } from "@/lib/types";
 
 /**
@@ -23,16 +23,19 @@ export default function FilterBar({
   filters,
   onToggleValue,
   onTogglePartners,
+  onToggleAssociationContent,
   onReset,
 }: {
   filters: FilterState;
   onToggleValue: (key: MultiFilterKey, id: string) => void;
   onTogglePartners: () => void;
+  onToggleAssociationContent: () => void;
   onReset: () => void;
 }) {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const layout = FILTER_LAYOUT[filters.resourceType ?? "all"];
   const activeCount = countActiveFilters(filters);
+  const showAssociationContent = offersAssociationContentFilter(filters.resourceType);
 
   const renderGroup = (key: MultiFilterKey) => {
     const group = FILTER_GROUPS[key];
@@ -84,7 +87,7 @@ export default function FilterBar({
             ) : (
               <p className="text-sm text-muted-foreground">
                 Choisissez un type de ressource pour voir les filtres spécifiques (pays, format,
-                type de dispositif…).
+                type de lieu…).
               </p>
             )}
 
@@ -103,6 +106,25 @@ export default function FilterBar({
                 </FieldLabel>
               </Field>
             </Field>
+
+            {/* Client request for « Contenus et médias »: a checkbox at the bottom. */}
+            {showAssociationContent ? (
+              <Field>
+                <FieldLabel className="text-xs tracking-wide text-muted-foreground uppercase">
+                  Provenance
+                </FieldLabel>
+                <Field orientation="horizontal">
+                  <Checkbox
+                    id="association-content-only"
+                    checked={filters.associationContentOnly}
+                    onCheckedChange={onToggleAssociationContent}
+                  />
+                  <FieldLabel htmlFor="association-content-only" className="font-normal">
+                    Uniquement les contenus créés par Les Invisibles
+                  </FieldLabel>
+                </Field>
+              </Field>
+            ) : null}
           </CollapsibleContent>
         </Collapsible>
       </CardContent>

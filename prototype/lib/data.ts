@@ -5,7 +5,14 @@
 
 import resourcesJson from "@/data/resources.json";
 import taxonomyJson from "@/data/taxonomy.json";
-import type { Resource, ResourceType, Taxonomy, TaxonomyItem, TaxonomyKey } from "./types";
+import type {
+  PlaceDetails,
+  Resource,
+  ResourceType,
+  Taxonomy,
+  TaxonomyItem,
+  TaxonomyKey,
+} from "./types";
 
 export const resources = resourcesJson as Resource[];
 export const taxonomy = taxonomyJson as Taxonomy;
@@ -39,6 +46,18 @@ export function typeTabLabel(type: ResourceType): string {
 }
 
 /**
+ * French labels of whatever categories a place/activity record carries
+ * (organisation type, place type, activity type) - usually one, sometimes two.
+ */
+export function placeCategoryLabels(details: PlaceDetails): string[] {
+  return [
+    details.organizationType ? label("institutionCategories", details.organizationType) : "",
+    details.placeType ? label("placeCategories", details.placeType) : "",
+    details.activityType ? label("activityCategories", details.activityType) : "",
+  ].filter(Boolean);
+}
+
+/**
  * The 2 to 4 metadata chips shown on a result card.
  * One function so the client can rework card density in a single place.
  */
@@ -46,10 +65,9 @@ export function getCardMeta(resource: Resource): string[] {
   const meta: string[] = [];
 
   if (resource.professional) {
-    const { country, city, consultationModes, family } = resource.professional;
+    const { country, city, consultationModes } = resource.professional;
     meta.push(`${city}, ${label("countries", country)}`);
     meta.push(...labels("consultationModes", consultationModes).slice(0, 1));
-    meta.push(label("professionalFamilies", family));
   }
 
   if (resource.culturalContent) {
@@ -58,8 +76,8 @@ export function getCardMeta(resource: Resource): string[] {
   }
 
   if (resource.place) {
-    const { category, deliveryMode, city } = resource.place;
-    meta.push(label(resource.resourceType === "institution_partner" ? "institutionCategories" : "supportCategories", category));
+    const { deliveryMode, city } = resource.place;
+    meta.push(...placeCategoryLabels(resource.place).slice(0, 1));
     meta.push(label("deliveryModes", deliveryMode));
     if (city) meta.push(city);
   }

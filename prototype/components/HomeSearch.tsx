@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
-import { CANDIDATE_TYPES, TAB_TYPES } from "@/lib/config";
+import { TAB_TYPES } from "@/lib/config";
 import { typeLabel } from "@/lib/data";
 
 /** Home page shortcuts - they lead to a pre-filtered /search. */
@@ -35,8 +35,8 @@ export default function HomeSearch() {
       </h1>
 
       <p className="mb-6 text-lg text-muted-foreground">
-        Professionnel·les, contenus, dispositifs de soutien et institutions, recommandés par des
-        personnes concernées et vérifiés par l’association Les Invisibles.
+        Professionnel·es, contenus et médias, outils pratiques, activités et organisations,
+        recommandés par des personnes concernées et vérifiés par l’association Les Invisibles.
       </p>
 
       <form
@@ -79,14 +79,7 @@ export default function HomeSearch() {
           </Button>
           {TAB_TYPES.map((type) => (
             <Button key={type} asChild variant="outline" size="sm">
-              <Link href={`/search?type=${type}`}>
-                {typeLabel(type)}
-                {CANDIDATE_TYPES.includes(type) ? (
-                  <Badge variant="secondary" className="font-normal">
-                    à valider
-                  </Badge>
-                ) : null}
-              </Link>
+              <Link href={`/search?type=${type}`}>{typeLabel(type)}</Link>
             </Button>
           ))}
         </nav>

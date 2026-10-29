@@ -23,7 +23,6 @@
     "professional": {
       "firstName": "Claire",
       "lastName": "Moret",
-      "family": "therapies_psy",
       "country": "CH",
       "city": "Lausanne",
       "consultationModes": ["in_person", "remote"],
@@ -34,10 +33,16 @@
           "description": "Accompagnement centré sur l’adaptation au quotidien, la fatigue et la douleur persistante."
         },
         {
-          "id": "gestion_stress",
-          "label": "Gestion du stress",
+          "id": "meditation_pleine_conscience",
+          "label": "Méditation et pleine conscience",
           "description": "Outils pratiques pour réduire la surcharge et retrouver des marges de récupération."
         }
+      ],
+      "topics": [
+        "douleurs_chroniques",
+        "fatigue_energie",
+        "stress_anxiete",
+        "organisation_quotidien_autonomie"
       ],
       "presentation": "Claire accompagne des personnes vivant avec des symptômes persistants ou fluctuants. Son approche met l’accent sur l’écoute, l’autonomie et les stratégies concrètes du quotidien.",
       "contact": {
@@ -77,7 +82,6 @@
     "professional": {
       "firstName": "Yann",
       "lastName": "Berthoud",
-      "family": "coaching_developpement",
       "country": "CH",
       "city": "Genève",
       "consultationModes": ["remote"],
@@ -87,6 +91,11 @@
           "label": "Coaching",
           "description": "Travail sur les priorités, le rythme et la répartition de l’énergie sur la semaine."
         }
+      ],
+      "topics": [
+        "fatigue_energie",
+        "organisation_quotidien_autonomie",
+        "vie_professionnelle_equilibre"
       ],
       "presentation": "Yann accompagne à distance des personnes dont l’équilibre et l’énergie fluctuent. Les séances sont courtes, structurées, et adaptées aux jours difficiles.",
       "contact": { "website": "#", "email": "contact@example.test" },
@@ -121,7 +130,6 @@
     "professional": {
       "firstName": "Nadia",
       "lastName": "Kremer",
-      "family": "bien_etre_corporel",
       "country": "FR",
       "city": "Lyon",
       "consultationModes": ["in_person"],
@@ -137,6 +145,7 @@
           "description": "Séances courtes à reproduire seul·e à la maison, sans matériel."
         }
       ],
+      "topics": ["stress_anxiete", "detente_relaxation", "sommeil_recuperation"],
       "presentation": "Nadia reçoit en cabinet et travaille sur le lien entre tension, respiration et inconfort digestif. Les séances sont adaptées aux périodes de crise.",
       "contact": { "phone": "+33 4 00 00 00 00", "email": "contact@example.test" }
     }
@@ -165,7 +174,6 @@
     "professional": {
       "firstName": "Émile",
       "lastName": "Vandeput",
-      "family": "therapies_psy",
       "country": "BE",
       "city": "Bruxelles",
       "consultationModes": ["hybrid"],
@@ -180,6 +188,12 @@
           "label": "Hypnose",
           "description": "Approche complémentaire proposée pour la gestion de la douleur."
         }
+      ],
+      "topics": [
+        "douleurs_chroniques",
+        "gestion_emotions",
+        "confiance_estime_de_soi",
+        "relations_communication"
       ],
       "presentation": "Émile reçoit des personnes confrontées à l’errance diagnostique et à l’invisibilité de leurs symptômes. Il alterne séances en cabinet et en visio.",
       "contact": { "website": "#", "bookingUrl": "#", "email": "contact@example.test" },
@@ -214,7 +228,6 @@
     "professional": {
       "firstName": "Rosalie",
       "lastName": "Fontaine",
-      "family": "coaching_developpement",
       "country": "CA",
       "city": "Montréal",
       "consultationModes": ["remote"],
@@ -224,6 +237,11 @@
           "label": "Coaching",
           "description": "Objectifs réalistes, organisation du quotidien et communication avec l’entourage."
         }
+      ],
+      "topics": [
+        "organisation_quotidien_autonomie",
+        "vie_professionnelle_equilibre",
+        "confiance_estime_de_soi"
       ],
       "presentation": "Rosalie propose un premier échange gratuit, puis des séances payantes. Elle travaille avec des personnes vivant avec des maladies très différentes.",
       "contact": { "website": "#", "email": "contact@example.test" },
@@ -254,13 +272,14 @@
     "culturalContent": {
       "authors": ["Camille Martin"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "practical_guide",
       "genre": "practical",
       "pointOfView": "practitioner",
       "mainTheme": "fatigue",
       "description": "Ce guide propose des repères simples autour de la fatigue persistante : comprendre les mécanismes en jeu, distinguer fatigue passagère et fatigue pathologique, repérer ses propres signaux d’alerte. La seconde partie est entièrement pratique : gestion de l’énergie au fil de la semaine, organisation des activités par priorités, communication avec l’entourage et préparation des rendez-vous médicaux.",
       "proposerOpinion": "Une ressource claire pour commencer à mettre des mots sur la fatigue et discuter de stratégies concrètes.",
-      "links": [{ "label": "Consulter la ressource", "url": "#" }]
+      "links": [{"label": "Consulter la ressource", "url": "#"}]
     }
   },
   {
@@ -287,6 +306,7 @@
     "culturalContent": {
       "authors": ["Inès Rivoire"],
       "hasMultipleAuthors": true,
+      "createdByAssociation": true,
       "format": "podcast",
       "genre": "testimony",
       "pointOfView": "patient",
@@ -323,13 +343,14 @@
     "culturalContent": {
       "authors": ["Théo Lambert", "Awa Diallo"],
       "hasMultipleAuthors": true,
+      "createdByAssociation": false,
       "format": "documentary",
       "genre": "documentary",
       "pointOfView": "journalist",
       "mainTheme": "douleur chronique",
       "description": "Tourné sur trois années, le film suit quatre personnes en quête de diagnostic, de la première consultation aux errances entre spécialistes. Il interroge la place accordée à la parole des patient·es dans le parcours de soin, le poids du doute médical et ce que l’attente fait aux corps et aux vies. Des chercheur·es et des soignant·es éclairent les situations sans jamais recouvrir les récits.",
       "proposerOpinion": "À regarder à deux : c’est un bon support pour expliquer à ses proches ce que veut dire « invisible ».",
-      "links": [{ "label": "Voir le documentaire", "url": "#" }]
+      "links": [{"label": "Voir le documentaire", "url": "#"}]
     }
   },
   {
@@ -356,19 +377,20 @@
     "culturalContent": {
       "authors": ["Sophie Aebi", "Karim Ferrand", "Lou Petit"],
       "hasMultipleAuthors": true,
+      "createdByAssociation": false,
       "format": "book",
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "énergie et quotidien",
       "description": "Un recueil de textes courts et d’illustrations, écrit à six mains par des personnes concernées et organisé par situations concrètes : le travail, les courses, les repas, les proches, les jours d’annulation. Chaque chapitre se lit en quelques minutes et se termine par une page « ce qui m’aide », où les auteur·rices partagent leurs stratégies sans jamais les présenter comme des leçons.",
       "proposerOpinion": "On peut le lire par petits bouts, ce qui est rare et précieux quand la concentration est limitée.",
-      "links": [{ "label": "Acheter le livre", "url": "#" }]
+      "links": [{"label": "Acheter le livre", "url": "#"}]
     }
   },
   {
     "id": "space-001",
     "slug": "cercle-mieux-etre-lausanne",
-    "resourceType": "support_space",
+    "resourceType": "activity_support",
     "title": "Cercle mieux-être des Invisibles – Lausanne",
     "shortDescription": "Une rencontre mensuelle entre pair·es, animée par l’association, autour du mieux-être au quotidien.",
     "image": null,
@@ -387,7 +409,7 @@
     "reviewCount": 27,
     "externalUrl": "#",
     "place": {
-      "category": "association_circle",
+      "activityType": "wellbeing_circle",
       "deliveryMode": "in_person",
       "country": "CH",
       "city": "Lausanne",
@@ -400,7 +422,7 @@
   {
     "id": "space-002",
     "slug": "groupe-de-parole-en-ligne-douleur",
-    "resourceType": "support_space",
+    "resourceType": "activity_support",
     "title": "Groupe de parole en ligne – Vivre avec la douleur",
     "shortDescription": "Un groupe hebdomadaire en visio, animé par des pair·es formé·es à l’écoute.",
     "image": null,
@@ -419,8 +441,9 @@
     "reviewCount": 18,
     "externalUrl": "#",
     "place": {
-      "category": "peer_group",
+      "activityType": "peer_group",
       "deliveryMode": "digital",
+      "country": "other",
       "presentation": "Une heure d’échange chaque semaine, caméra facultative, avec un temps de parole garanti pour chacun·e.",
       "whyItHelps": "Participer depuis chez soi, y compris les jours où sortir est impossible.",
       "website": "#"
@@ -429,12 +452,16 @@
   {
     "id": "space-003",
     "slug": "espace-respire-vevey",
-    "resourceType": "support_space",
+    "resourceType": "organization_place",
     "title": "Espace Respire – Vevey",
     "shortDescription": "Un lieu de bien-être adapté aux fatigues et douleurs chroniques : yoga doux, méditation, temps calme.",
     "image": null,
     "objectives": ["se_detendre", "mieux_vivre_au_quotidien"],
-    "disorderCategories": ["troubles_fatigue", "troubles_douleur_chronique", "troubles_musculosquelettiques"],
+    "disorderCategories": [
+      "troubles_fatigue",
+      "troubles_douleur_chronique",
+      "troubles_musculosquelettiques"
+    ],
     "themes": ["bien_etre", "yoga"],
     "searchKeywords": ["yoga adapté", "méditation"],
     "pricing": "mixed",
@@ -448,7 +475,7 @@
     "reviewCount": 6,
     "externalUrl": "#",
     "place": {
-      "category": "wellbeing_space",
+      "placeType": "wellbeing_relaxation_space",
       "deliveryMode": "hybrid",
       "country": "CH",
       "city": "Vevey",
@@ -461,7 +488,7 @@
   {
     "id": "space-004",
     "slug": "point-d-appui-administratif",
-    "resourceType": "support_space",
+    "resourceType": "activity_support",
     "title": "Point d’appui administratif",
     "shortDescription": "Une permanence gratuite pour se repérer dans les démarches AI, assurances et aménagements de poste.",
     "image": null,
@@ -480,7 +507,7 @@
     "reviewCount": 11,
     "externalUrl": "#",
     "place": {
-      "category": "administrative_support",
+      "activityType": "admin_social_support",
       "deliveryMode": "digital",
       "country": "CH",
       "presentation": "Une permanence téléphonique et par visio, deux demi-journées par semaine, pour préparer un dossier ou relire un courrier.",
@@ -491,7 +518,7 @@
   {
     "id": "inst-002",
     "slug": "bureau-cantonal-de-l-inclusion",
-    "resourceType": "institution_partner",
+    "resourceType": "organization_place",
     "title": "Bureau cantonal de l’inclusion",
     "shortDescription": "Le service public d’information sur les droits, les prestations sociales et l’accessibilité.",
     "image": null,
@@ -510,7 +537,7 @@
     "reviewCount": 3,
     "externalUrl": "#",
     "place": {
-      "category": "public_institution",
+      "organizationType": "public_institution",
       "deliveryMode": "hybrid",
       "country": "CH",
       "city": "Lausanne",
@@ -522,12 +549,16 @@
   {
     "id": "inst-003",
     "slug": "centre-de-recherche-maladies-invisibles",
-    "resourceType": "institution_partner",
+    "resourceType": "organization_place",
     "title": "Centre de recherche sur les maladies chroniques invisibles",
     "shortDescription": "Une unité universitaire qui publie des synthèses accessibles et recrute pour ses études.",
     "image": null,
     "objectives": ["s_informer", "apprendre"],
-    "disorderCategories": ["troubles_fatigue", "troubles_neurologiques", "troubles_douleur_chronique"],
+    "disorderCategories": [
+      "troubles_fatigue",
+      "troubles_neurologiques",
+      "troubles_douleur_chronique"
+    ],
     "themes": ["recherche", "science"],
     "searchKeywords": ["EM/SFC", "covid long", "recherche clinique"],
     "pricing": "free",
@@ -541,7 +572,7 @@
     "reviewCount": 0,
     "externalUrl": "#",
     "place": {
-      "category": "research_center",
+      "organizationType": "research_center",
       "deliveryMode": "digital",
       "country": "CH",
       "city": "Genève",
@@ -574,19 +605,20 @@
     "culturalContent": {
       "authors": ["Studio Sillage"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "app",
       "genre": "practical",
       "pointOfView": "patient",
       "mainTheme": "suivi des symptômes",
       "description": "L’application permet de noter en trois gestes symptômes, niveau d’énergie et déclencheurs possibles, puis d’en dégager des tendances sur la semaine ou le mois. Un export PDF met ces données en forme pour les rendez-vous médicaux. Les rappels sont entièrement désactivables et l’app fonctionne hors connexion. La version gratuite est complète ; les options payantes ajoutent graphiques et sauvegarde.",
       "proposerOpinion": "La seule appli que j’ai réussi à tenir plus d’un mois : elle ne culpabilise pas quand on oublie des jours.",
-      "links": [{ "label": "Télécharger l’application", "url": "#" }]
+      "links": [{"label": "Télécharger l’application", "url": "#"}]
     }
   },
   {
     "id": "prog-001",
     "slug": "programme-energie-et-quotidien",
-    "resourceType": "program_training",
+    "resourceType": "activity_support",
     "title": "Programme « Énergie et quotidien » – 6 ateliers",
     "shortDescription": "Un cycle de six ateliers, en présentiel ou en visio, pour apprendre à répartir son énergie sur la semaine.",
     "image": null,
@@ -605,7 +637,7 @@
     "reviewCount": 10,
     "externalUrl": "#",
     "place": {
-      "category": "programme_formation",
+      "activityType": "program_training",
       "deliveryMode": "hybrid",
       "country": "CH",
       "city": "Lausanne",
@@ -638,13 +670,12 @@
     "professional": {
       "firstName": "Élodie",
       "lastName": "Vasseur",
-      "family": "bien_etre_corporel",
       "country": "FR",
       "city": "Lyon",
       "consultationModes": ["in_person", "remote"],
       "specialties": [
         {
-          "id": "yoga",
+          "id": "yoga_adapte",
           "label": "Yoga adapté",
           "description": "Postures modifiées, séances sur chaise ou allongées, sans objectif de performance."
         },
@@ -654,6 +685,7 @@
           "description": "Techniques de respiration et de détente utilisables en autonomie les jours difficiles."
         }
       ],
+      "topics": ["mouvement_activite_physique", "detente_relaxation", "douleurs_chroniques"],
       "presentation": "Élodie enseigne un yoga sans performance, où chaque posture existe en plusieurs variantes. Les cours en visio sont enregistrés pour pouvoir pratiquer à son rythme.",
       "contact": { "website": "#", "bookingUrl": "#", "email": "contact@example.test" },
       "socialLinks": { "instagram": "#", "youtube": "#" },
@@ -687,13 +719,14 @@
     "culturalContent": {
       "authors": ["Marion Clerc"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "comic",
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "endométriose",
       "description": "Du premier rendez-vous minimisé jusqu’au diagnostic, dix ans plus tard, l’autrice raconte en dessin ce que les mots médicaux ne disent pas : la douleur qui s’invite partout, le doute qu’on finit par retourner contre soi, la colère aussi. Le trait, tour à tour tendre et rageur, rend lisible l’invisible. En fin d’album, un cahier fait le point sur l’endométriose et oriente vers des ressources.",
       "proposerOpinion": "Je l’ai offerte à ma mère et à ma gynécologue. Les deux ont enfin compris la même chose.",
-      "links": [{ "label": "Acheter la BD", "url": "#" }]
+      "links": [{"label": "Acheter la BD", "url": "#"}]
     }
   },
   {
@@ -720,6 +753,7 @@
     "culturalContent": {
       "authors": ["Dr Hélène Sauty"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "video",
       "genre": "educational",
       "pointOfView": "doctor",
@@ -735,7 +769,7 @@
   {
     "id": "space-005",
     "slug": "mediatheque-creneaux-calmes-geneve",
-    "resourceType": "support_space",
+    "resourceType": "organization_place",
     "title": "Médiathèque des Pâquis – créneaux calmes",
     "shortDescription": "Deux matinées par semaine à lumière tamisée et sans annonces sonores, avec fauteuils de repos.",
     "image": null,
@@ -754,7 +788,7 @@
     "reviewCount": 8,
     "externalUrl": "#",
     "place": {
-      "category": "accessible_cultural_place",
+      "placeType": "inclusive_cultural_leisure_place",
       "deliveryMode": "in_person",
       "country": "CH",
       "city": "Genève",
@@ -766,7 +800,7 @@
   {
     "id": "inst-004",
     "slug": "fondation-passerelle-emploi",
-    "resourceType": "institution_partner",
+    "resourceType": "organization_place",
     "title": "Fondation Passerelle Emploi",
     "shortDescription": "Un accompagnement gratuit vers l’emploi et le maintien en poste avec une maladie chronique.",
     "image": null,
@@ -785,7 +819,7 @@
     "reviewCount": 7,
     "externalUrl": "#",
     "place": {
-      "category": "private_organization",
+      "organizationType": "private_organization",
       "deliveryMode": "hybrid",
       "country": "FR",
       "city": "Paris",
@@ -819,13 +853,14 @@
     "culturalContent": {
       "authors": ["Collectif Boussole"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "website",
       "genre": "practical",
       "pointOfView": "association",
       "mainTheme": "droits et démarches",
       "description": "On répond à quelques questions — pays, situation professionnelle, diagnostic posé ou non — et le site affiche les aides et démarches possibles, présentées dans l’ordre conseillé, avec pour chacune les documents à préparer et les délais habituels. Les fiches sont relues par des juristes bénévoles et datées, pour savoir si l’information est encore à jour. Couvre la Suisse, la France et la Belgique.",
       "proposerOpinion": "Le seul endroit où les infos suisses et françaises sont à jour au même endroit. Nos bénévoles s’en servent en permanence.",
-      "links": [{ "label": "Ouvrir la Boussole", "url": "#" }]
+      "links": [{"label": "Ouvrir la Boussole", "url": "#"}]
     }
   },
   {
@@ -852,19 +887,20 @@
     "culturalContent": {
       "authors": ["Jeanne Waroquier"],
       "hasMultipleAuthors": true,
+      "createdByAssociation": false,
       "format": "practical_guide",
       "genre": "practical",
       "pointOfView": "patient",
       "mainTheme": "communication avec l’entourage",
       "description": "Chaque carte porte une phrase prête à l’emploi (« Aujourd’hui je peux écouter, pas organiser ») et, au dos, une courte explication à montrer plutôt qu’à dire. Le jeu couvre les situations les plus courantes : annuler sans se justifier, demander une pause, expliquer le brouillard cognitif, poser une limite à table. Un mode d’emploi suggère comment introduire les cartes auprès des proches.",
       "proposerOpinion": "Créées avec un groupe de parole. Les jours sans voix ou sans mots, tendre une carte change tout.",
-      "links": [{ "label": "Télécharger les cartes (PDF)", "url": "#" }]
+      "links": [{"label": "Télécharger les cartes (PDF)", "url": "#"}]
     }
   },
   {
     "id": "prog-002",
     "slug": "formation-expliquer-l-invisible",
-    "resourceType": "program_training",
+    "resourceType": "activity_support",
     "title": "Formation « Expliquer l’invisible » – proches et employeurs",
     "shortDescription": "Deux soirées en visio pour aider l’entourage à comprendre les maladies invisibles et à réagir utilement.",
     "image": null,
@@ -883,8 +919,9 @@
     "reviewCount": 5,
     "externalUrl": "#",
     "place": {
-      "category": "programme_formation",
+      "activityType": "program_training",
       "deliveryMode": "digital",
+      "country": "other",
       "presentation": "Deux sessions de deux heures, animées par une pair-aidante et une psychologue : mécanismes des maladies invisibles, ce qui aide, ce qui blesse. Gratuit pour les proches de membres.",
       "whyItHelps": "Déléguer la pédagogie : plutôt que de réexpliquer soi-même dix fois, on peut inviter ses proches à une soirée pensée pour eux.",
       "website": "#"
@@ -914,13 +951,14 @@
     "culturalContent": {
       "authors": ["Léna Barbey"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "movie",
       "genre": "fiction",
       "pointOfView": "patient",
       "mainTheme": "vivre après le diagnostic",
       "description": "Sans pathos ni happy end forcé, le film suit une année de la vie d’Emma après l’annonce de sa maladie : les renoncements, les ajustements, les malentendus avec les proches et les petites victoires qui recomposent un quotidien vivable. Le scénario a été coécrit avec des personnes concernées, et cela se sent dans la justesse des scènes de travail et de famille.",
       "proposerOpinion": "Le premier film où je n’ai pas eu l’impression qu’on parlait de nous sans nous.",
-      "links": [{ "label": "Voir le film", "url": "#" }]
+      "links": [{"label": "Voir le film", "url": "#"}]
     }
   },
   {
@@ -931,7 +969,11 @@
     "shortDescription": "Quatre épisodes, quatre parcours : douleur, fatigue, vertiges et troubles psychiques au quotidien.",
     "image": null,
     "objectives": ["s_informer", "echanger"],
-    "disorderCategories": ["troubles_douleur_chronique", "troubles_vestibulaires", "troubles_psychiques"],
+    "disorderCategories": [
+      "troubles_douleur_chronique",
+      "troubles_vestibulaires",
+      "troubles_psychiques"
+    ],
     "themes": ["temoignage", "vecu"],
     "searchKeywords": ["handicap invisible", "vertiges", "douleur chronique"],
     "pricing": "free",
@@ -947,13 +989,14 @@
     "culturalContent": {
       "authors": ["Nora Guex", "Pablo Herrera"],
       "hasMultipleAuthors": true,
+      "createdByAssociation": false,
       "format": "series",
       "genre": "documentary",
       "pointOfView": "journalist",
       "mainTheme": "parcours de vie",
       "description": "Quatre épisodes de trente minutes, quatre personnes suivies pendant plusieurs mois : rendez-vous médicaux, aménagements au travail, moments d’entourage, jours de repli. La caméra s’efface et laisse la durée faire son travail : on voit ce que l’invisible coûte réellement, et ce qui aide. La série est diffusée gratuitement en ligne, avec sous-titres et audiodescription.",
       "proposerOpinion": "L’épisode sur les vertiges est le seul contenu que j’ai pu montrer à mon employeur.",
-      "links": [{ "label": "Voir les épisodes", "url": "#" }]
+      "links": [{"label": "Voir les épisodes", "url": "#"}]
     }
   },
   {
@@ -980,13 +1023,14 @@
     "culturalContent": {
       "authors": ["Aline Rochat"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "blog",
       "genre": "testimony",
       "pointOfView": "patient",
       "mainTheme": "vertiges chroniques",
       "description": "Des billets courts, écrits entre deux crises : les stratégies qui marchent, celles qui ne marchent pas, et ce qu’on aimerait que les autres comprennent. L’autrice documente aussi ses expérimentations — rééducation vestibulaire, aménagement du poste de travail, trajets en transports — avec un ton direct qui fait du bien. Les commentaires, modérés, sont devenus un petit espace d’entraide.",
       "proposerOpinion": "C’est le blog que j’aurais voulu trouver au moment de mon diagnostic.",
-      "links": [{ "label": "Lire le blog", "url": "#" }]
+      "links": [{"label": "Lire le blog", "url": "#"}]
     }
   },
   {
@@ -1013,13 +1057,14 @@
     "culturalContent": {
       "authors": ["Rédaction Résilience"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": false,
       "format": "magazine",
       "genre": "educational",
       "pointOfView": "researcher",
       "mainTheme": "recherche et vécu",
       "description": "Chaque numéro traite un thème — le sommeil, la douleur, le travail — en deux volets : un état de la recherche, écrit avec des chercheur·es et relu pour rester lisible, puis des témoignages qui confrontent ces résultats au réel. La rubrique « on a testé » évalue outils et dispositifs avec des testeur·ses concerné·es. Une partie des articles est en accès libre, le reste sur abonnement.",
       "proposerOpinion": "Certains articles sont en accès libre, le reste sur abonnement. La rubrique « on a testé » vaut le détour.",
-      "links": [{ "label": "Découvrir le magazine", "url": "#" }]
+      "links": [{"label": "Découvrir le magazine", "url": "#"}]
     }
   },
   {
@@ -1046,19 +1091,20 @@
     "culturalContent": {
       "authors": ["Les Invisibles"],
       "hasMultipleAuthors": false,
+      "createdByAssociation": true,
       "format": "association_article",
       "genre": "educational",
       "pointOfView": "association",
       "mainTheme": "idées reçues",
       "description": "« Mais tu n’as pas l’air malade », « à ton âge, c’est dans la tête », « tout le monde est fatigué »… Dix phrases entendues mille fois, et pour chacune : ce qu’elle rate, ce qu’elle produit chez la personne qui la reçoit, et quoi répondre — ou pas. L’article s’appuie sur les témoignages recueillis lors des cercles de l’association et se partage facilement avec l’entourage.",
       "proposerOpinion": "L’article qu’on envoie à sa famille avant les fêtes.",
-      "links": [{ "label": "Lire l’article", "url": "#" }]
+      "links": [{"label": "Lire l’article", "url": "#"}]
     }
   },
   {
     "id": "content-012",
     "slug": "atelier-mettre-des-mots",
-    "resourceType": "cultural_content",
+    "resourceType": "activity_support",
     "title": "Atelier d’écriture « Mettre des mots »",
     "shortDescription": "Un atelier d’écriture mensuel en visio pour raconter la maladie autrement qu’en rendez-vous médical.",
     "image": null,
@@ -1076,22 +1122,19 @@
     "ratingAverage": 4.5,
     "reviewCount": 9,
     "externalUrl": "#",
-    "culturalContent": {
-      "authors": ["Claire Fontanet"],
-      "hasMultipleAuthors": false,
-      "format": "atelier",
-      "genre": "wellbeing_practice",
-      "pointOfView": "practitioner",
-      "mainTheme": "écriture et vécu",
-      "description": "Deux heures par mois, en visio, autour d’une consigne simple et sans aucun niveau requis : on écrit une dizaine de minutes, on partage si on le souhaite, caméra libre. L’animatrice, formée à l’écriture thérapeutique, veille au cadre : pas de commentaire sur les textes, pas d’obligation de lire. Les consignes sont pensées pour les jours de fatigue comme pour les jours d’élan.",
-      "proposerOpinion": "Je n’écris jamais entre les séances, et pourtant je n’en ai raté aucune.",
-      "links": [{ "label": "S’inscrire à l’atelier", "url": "#" }]
+    "place": {
+      "activityType": "workshop",
+      "deliveryMode": "digital",
+      "country": "other",
+      "presentation": "Deux heures par mois, en visio, autour d’une consigne simple et sans aucun niveau requis : on écrit une dizaine de minutes, on partage si on le souhaite, caméra libre. L’animatrice, formée à l’écriture thérapeutique, veille au cadre : pas de commentaire sur les textes, pas d’obligation de lire. Les consignes sont pensées pour les jours de fatigue comme pour les jours d’élan.",
+      "whyItHelps": "Mettre des mots sur le vécu dans un cadre sécurisant : aucun niveau requis, pas de commentaire sur les textes, pas d’obligation de lire.",
+      "website": "#"
     }
   },
   {
     "id": "content-013",
     "slug": "ligne-d-ecoute-les-invisibles",
-    "resourceType": "cultural_content",
+    "resourceType": "activity_support",
     "title": "Ligne d’écoute Les Invisibles",
     "shortDescription": "Un service d’écoute téléphonique tenu par des bénévoles formé·es, deux soirs par semaine.",
     "image": null,
@@ -1109,16 +1152,117 @@
     "ratingAverage": 4.8,
     "reviewCount": 21,
     "externalUrl": "#",
-    "culturalContent": {
-      "authors": ["Les Invisibles"],
-      "hasMultipleAuthors": false,
-      "format": "service",
-      "genre": "practical",
-      "pointOfView": "association",
-      "mainTheme": "écoute et soutien",
-      "description": "Le mardi et le jeudi de 19 h à 21 h, des bénévoles ayant eux-mêmes un vécu de l’Invisible répondent au téléphone : pas de conseil médical, pas de jugement, juste une écoute formée et le temps qu’il faut. Si besoin, elles et ils orientent vers les permanences, les cercles ou les ressources vérifiées de l’Invisithèque. L’appel est gratuit et peut rester anonyme.",
-      "proposerOpinion": "Parfois on n’a pas besoin d’une solution, juste de quelqu’un qui comprend au bout du fil.",
-      "links": [{ "label": "Voir les horaires et le numéro", "url": "#" }]
+    "place": {
+      "activityType": "helpline",
+      "deliveryMode": "digital",
+      "country": "CH",
+      "presentation": "Le mardi et le jeudi de 19 h à 21 h, des bénévoles ayant eux-mêmes un vécu de l’Invisible répondent au téléphone : pas de conseil médical, pas de jugement, juste une écoute formée et le temps qu’il faut. Si besoin, elles et ils orientent vers les permanences, les cercles ou les ressources vérifiées de l’Invisithèque. L’appel est gratuit et peut rester anonyme.",
+      "whyItHelps": "Parfois on n’a pas besoin d’une solution, juste de quelqu’un qui comprend au bout du fil : une écoute formée, gratuite et anonyme.",
+      "website": "#"
+    }
+  },
+  {
+    "id": "org-001",
+    "slug": "les-voix-du-dedans-association",
+    "resourceType": "organization_place",
+    "title": "Les Voix du Dedans – association de patient·es",
+    "shortDescription": "Une association belge de personnes concernées : permanences d’accueil, information sur les droits et relais vers les soins.",
+    "image": null,
+    "objectives": ["trouver_du_soutien", "s_informer", "echanger"],
+    "disorderCategories": ["tous_troubles"],
+    "themes": ["entraide", "association", "droits"],
+    "searchKeywords": ["association de patients", "pair-aidance", "Belgique"],
+    "pricing": "free",
+    "isFeatured": false,
+    "recommendedBy": "Un·e bénévole de l’association",
+    "isAssociationPartner": true,
+    "hasUpcomingAssociationEvent": false,
+    "baseRelevance": 44,
+    "publishedAt": "2026-08-12",
+    "ratingAverage": 4.4,
+    "reviewCount": 7,
+    "externalUrl": "#",
+    "place": {
+      "organizationType": "association",
+      "deliveryMode": "hybrid",
+      "country": "BE",
+      "city": "Namur",
+      "presentation": "Fondée par des personnes concernées, l’association tient une permanence hebdomadaire à Namur et répond par e-mail au reste de la Belgique francophone. Elle publie des fiches sur les droits et oriente vers des professionnel·les sensibilisé·es.",
+      "whyItHelps": "Un premier contact entre pair·es, sans rendez-vous médical, pour ne pas rester seul·e face aux démarches.",
+      "website": "#",
+      "socialLinks": { "facebook": "#", "instagram": "#" }
+    }
+  },
+  {
+    "id": "org-002",
+    "slug": "maison-du-repit-annecy",
+    "resourceType": "organization_place",
+    "title": "Maison du Répit – Annecy",
+    "shortDescription": "Des séjours courts dans un lieu calme au bord du lac, pensés pour souffler quand la maladie prend toute la place.",
+    "image": null,
+    "objectives": ["se_detendre", "mieux_vivre_au_quotidien", "trouver_du_soutien"],
+    "disorderCategories": [
+      "troubles_fatigue",
+      "troubles_douleur_chronique",
+      "troubles_neurologiques"
+    ],
+    "themes": ["repit", "repos", "aidants"],
+    "searchKeywords": ["répit", "séjour de repos", "proches aidants"],
+    "pricing": "mixed",
+    "isFeatured": false,
+    "recommendedBy": "Sami, membre de la communauté",
+    "isAssociationPartner": false,
+    "hasUpcomingAssociationEvent": false,
+    "baseRelevance": 40,
+    "publishedAt": "2026-07-30",
+    "ratingAverage": 4.5,
+    "reviewCount": 5,
+    "externalUrl": "#",
+    "place": {
+      "organizationType": "association",
+      "placeType": "respite_place",
+      "deliveryMode": "in_person",
+      "country": "FR",
+      "city": "Annecy",
+      "presentation": "Gérée par une association, la maison accueille pour deux à cinq nuits des personnes malades et leurs proches : chambres au calme, repas adaptés, aucune activité obligatoire. Une partie des séjours est prise en charge.",
+      "whyItHelps": "S’arrêter vraiment, dans un lieu où personne ne demande d’aller mieux, et où l’on peut aussi venir à deux.",
+      "website": "#"
+    }
+  },
+  {
+    "id": "org-003",
+    "slug": "salle-adapt-fribourg",
+    "resourceType": "organization_place",
+    "title": "Salle Adapt’ – Fribourg",
+    "shortDescription": "Une salle de sport-santé encadrée par des professionnel·les formé·es à l’activité physique adaptée.",
+    "image": null,
+    "objectives": ["mieux_vivre_au_quotidien", "se_detendre"],
+    "disorderCategories": [
+      "troubles_musculosquelettiques",
+      "troubles_douleur_chronique",
+      "troubles_fatigue"
+    ],
+    "themes": ["activite_physique", "mouvement"],
+    "searchKeywords": ["activité physique adaptée", "APA", "sport santé"],
+    "pricing": "paid",
+    "isFeatured": false,
+    "recommendedBy": null,
+    "isAssociationPartner": false,
+    "hasUpcomingAssociationEvent": false,
+    "baseRelevance": 36,
+    "publishedAt": "2026-09-04",
+    "ratingAverage": 4.2,
+    "reviewCount": 4,
+    "externalUrl": "#",
+    "place": {
+      "placeType": "adapted_physical_activity_place",
+      "deliveryMode": "in_person",
+      "country": "CH",
+      "city": "Fribourg",
+      "presentation": "Des créneaux en petit groupe, un bilan d’entrée avec un·e physiothérapeute et des séances ajustées à la forme du jour : on peut arriver en retard, partir plus tôt, ou rester allongé·e.",
+      "whyItHelps": "Reprendre le mouvement sans se blesser ni s’épuiser, avec des personnes qui connaissent la fatigue et la douleur chroniques.",
+      "website": "#",
+      "socialLinks": { "instagram": "#" }
     }
   }
 ]

@@ -114,6 +114,10 @@ export default function SearchClient() {
     updateFilters({ ...filters, partnersOnly: !filters.partnersOnly });
   }
 
+  function toggleAssociationContent() {
+    updateFilters({ ...filters, associationContentOnly: !filters.associationContentOnly });
+  }
+
   function resetAll() {
     setQuery("");
     updateFilters({ ...EMPTY_FILTERS });
@@ -157,6 +161,7 @@ export default function SearchClient() {
           filters={filters}
           onToggleValue={toggleValue}
           onTogglePartners={togglePartners}
+          onToggleAssociationContent={toggleAssociationContent}
           onReset={resetAll}
         />
       </section>
@@ -166,6 +171,7 @@ export default function SearchClient() {
         onRemoveValue={removeValue}
         onClearType={() => handleTypeChange(null)}
         onTogglePartners={togglePartners}
+        onToggleAssociationContent={toggleAssociationContent}
         onReset={resetAll}
       />
 

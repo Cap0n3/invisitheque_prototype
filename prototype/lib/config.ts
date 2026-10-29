@@ -24,22 +24,21 @@ export const PRIORITY_BONUSES = {
   titleMatch: 15,
 };
 
-/** Resource types offered as tabs, in display order. */
+/**
+ * Resource types offered as tabs, in display order.
+ * The five categories were fixed by the client (October 2026); the former
+ * "candidate" types are gone.
+ */
 export const TAB_TYPES: ResourceType[] = [
   "professional",
   "cultural_content",
-  "support_space",
-  "institution_partner",
   "practical_tool",
-  "program_training",
+  "activity_support",
+  "organization_place",
 ];
 
-/**
- * Candidate types (spec 9.1): present so the client can decide whether they
- * deserve their own tab, or belong under an existing type. Remove from
- * TAB_TYPES to demote them.
- */
-export const CANDIDATE_TYPES: ResourceType[] = ["practical_tool", "program_training"];
+/** Resource types that offer the « contenus créés par Les Invisibles » checkbox. */
+export const ASSOCIATION_CONTENT_TYPES: ResourceType[] = ["cultural_content"];
 
 export interface FilterGroupDef {
   key: MultiFilterKey;
@@ -56,30 +55,26 @@ export const FILTER_GROUPS: Record<MultiFilterKey, FilterGroupDef> = {
     taxonomy: "disorderCategories",
   },
   pricing: { key: "pricing", label: "Tarif", taxonomy: "pricing" },
-  countries: { key: "countries", label: "Pays", taxonomy: "countries" },
+  countries: { key: "countries", label: "Pays / localisation", taxonomy: "countries" },
   consultationModes: {
     key: "consultationModes",
     label: "Mode de consultation",
     taxonomy: "consultationModes",
   },
-  professionalFamilies: {
-    key: "professionalFamilies",
-    label: "Famille d’accompagnement",
-    taxonomy: "professionalFamilies",
-  },
   specialties: { key: "specialties", label: "Spécialité", taxonomy: "specialties" },
   mediaFormats: { key: "mediaFormats", label: "Format", taxonomy: "mediaFormats" },
   mediaGenres: { key: "mediaGenres", label: "Genre", taxonomy: "mediaGenres" },
   pointsOfView: { key: "pointsOfView", label: "Point de vue", taxonomy: "pointsOfView" },
-  supportCategories: {
-    key: "supportCategories",
-    label: "Type de dispositif",
-    taxonomy: "supportCategories",
-  },
   institutionCategories: {
     key: "institutionCategories",
     label: "Type d’organisation",
     taxonomy: "institutionCategories",
+  },
+  placeCategories: { key: "placeCategories", label: "Type de lieu", taxonomy: "placeCategories" },
+  activityCategories: {
+    key: "activityCategories",
+    label: "Type d’activité",
+    taxonomy: "activityCategories",
   },
   deliveryModes: { key: "deliveryModes", label: "Accès", taxonomy: "deliveryModes" },
 };
@@ -101,7 +96,7 @@ export const FILTER_LAYOUT: Record<
   all: { primary: GLOBAL_PRIMARY, advanced: [] },
   professional: {
     primary: GLOBAL_PRIMARY,
-    advanced: ["countries", "consultationModes", "professionalFamilies", "specialties"],
+    advanced: ["countries", "consultationModes", "specialties"],
   },
   cultural_content: {
     primary: GLOBAL_PRIMARY,
@@ -111,17 +106,15 @@ export const FILTER_LAYOUT: Record<
     primary: GLOBAL_PRIMARY,
     advanced: ["mediaFormats", "mediaGenres", "pointsOfView"],
   },
-  support_space: {
+  // Not specified by the client yet: a proposal to discuss in the workshop.
+  activity_support: {
     primary: GLOBAL_PRIMARY,
-    advanced: ["supportCategories", "deliveryModes"],
+    advanced: ["activityCategories", "deliveryModes", "countries"],
   },
-  program_training: {
+  // Client spec « Prototype - Organisations & lieux » (filters 3 to 6).
+  organization_place: {
     primary: GLOBAL_PRIMARY,
-    advanced: ["supportCategories", "deliveryModes"],
-  },
-  institution_partner: {
-    primary: GLOBAL_PRIMARY,
-    advanced: ["institutionCategories", "deliveryModes"],
+    advanced: ["institutionCategories", "placeCategories", "deliveryModes", "countries"],
   },
 };
 
@@ -137,9 +130,9 @@ export const RELAX_ORDER: MultiFilterKey[] = [
   "consultationModes",
   "deliveryModes",
   "mediaFormats",
-  "supportCategories",
+  "placeCategories",
+  "activityCategories",
   "institutionCategories",
-  "professionalFamilies",
   "countries",
   "pricing",
   "disorderCategories",

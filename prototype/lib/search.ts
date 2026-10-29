@@ -6,7 +6,7 @@
  * "fibromyalgie" even though the filters only expose broad disorder types.
  */
 
-import { label } from "./data";
+import { label, labels, placeCategoryLabels } from "./data";
 import type { Resource } from "./types";
 
 export function normalize(value: string): string {
@@ -30,8 +30,9 @@ function haystack(resource: Resource): string {
 
   if (resource.professional) {
     const p = resource.professional;
-    parts.push(p.city, label("countries", p.country), label("professionalFamilies", p.family));
+    parts.push(p.city, label("countries", p.country));
     parts.push(...p.specialties.map((s) => s.label));
+    parts.push(...labels("professionalTopics", p.topics));
   }
 
   if (resource.culturalContent) {
@@ -41,7 +42,7 @@ function haystack(resource: Resource): string {
 
   if (resource.place) {
     const s = resource.place;
-    parts.push(s.city ?? "", label("supportCategories", s.category), label("institutionCategories", s.category));
+    parts.push(s.city ?? "", ...placeCategoryLabels(s));
   }
 
   return normalize(parts.join(" "));

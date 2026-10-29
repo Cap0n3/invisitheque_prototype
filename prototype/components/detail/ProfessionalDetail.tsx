@@ -8,6 +8,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { DataList, DetailSection, LinkList } from "./DetailSection";
+import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -55,10 +56,6 @@ export default function ProfessionalDetail({ details }: { details: ProfessionalD
               label: "Consultation",
               value: labels("consultationModes", details.consultationModes).join(" · "),
             },
-            {
-              label: "Famille d’accompagnement",
-              value: label("professionalFamilies", details.family),
-            },
           ]}
         />
       </DetailSection>
@@ -75,6 +72,24 @@ export default function ProfessionalDetail({ details }: { details: ProfessionalD
             </AccordionItem>
           ))}
         </Accordion>
+
+        {/* Client request: « Thématiques abordées » sits under the specialties. */}
+        {details.topics.length > 0 ? (
+          <div className="space-y-2 border-t pt-3">
+            <p className="text-xs tracking-wide text-muted-foreground uppercase">
+              Thématiques abordées
+            </p>
+            <ul className="flex flex-wrap gap-1.5">
+              {labels("professionalTopics", details.topics).map((topic) => (
+                <li key={topic}>
+                  <Badge variant="secondary" className="font-normal">
+                    {topic}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </DetailSection>
 
       {discount ? (

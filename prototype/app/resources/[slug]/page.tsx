@@ -123,11 +123,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
         />
       ) : null}
       {resource.place ? (
-        <PlaceDetail
-          details={resource.place}
-          resourceType={resource.resourceType}
-          isAssociationPartner={resource.isAssociationPartner}
-        />
+        <PlaceDetail details={resource.place} isAssociationPartner={resource.isAssociationPartner} />
       ) : null}
     </article>
   );
