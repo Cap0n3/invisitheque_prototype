@@ -6,6 +6,7 @@
 import resourcesJson from "@/data/resources.json";
 import taxonomyJson from "@/data/taxonomy.json";
 import type {
+  ConsultationMode,
   PlaceDetails,
   Resource,
   ResourceType,
@@ -105,4 +106,17 @@ export function formatDate(iso: string): string {
     month: "long",
     year: "numeric",
   });
+}
+
+/** French enumeration: "Présentiel et visio", "Lausanne, Vevey et Genève". */
+export function joinFr(items: string[]): string {
+  const parts = items.filter(Boolean);
+  if (parts.length <= 1) return parts[0] ?? "";
+  return `${parts.slice(0, -1).join(", ")} et ${parts[parts.length - 1]}`;
+}
+
+/** "Présentiel et visio": the modes as one phrase, only the first capitalised. */
+export function consultationModesText(modes: ConsultationMode[]): string {
+  const names = labels("consultationModes", modes);
+  return joinFr(names.map((name, index) => (index === 0 ? name : name.toLowerCase())));
 }

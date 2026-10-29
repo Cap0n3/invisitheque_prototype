@@ -1,128 +1,216 @@
 import {
   AtSign,
-  CalendarCheck,
+  Banknote,
+  CalendarHeart,
+  CirclePlay,
+  ExternalLink,
   Globe,
-  Link as LinkIcon,
+  Handshake,
   Mail,
+  MapPin,
+  Monitor,
   Phone,
-  type LucideIcon,
 } from "lucide-react";
-import { DataList, DetailSection, LinkList } from "./DetailSection";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { formatDate, label, labels } from "@/lib/data";
-import type { ProfessionalDetails } from "@/lib/types";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  ContactRow,
+  DetailBody,
+  DetailList,
+  DetailSection,
+  Highlight,
+  InfoRow,
+} from "./DetailLayout";
+import { consultationModesText, formatDate, label, labels } from "@/lib/data";
+import { wellbeingCirclesHref } from "@/lib/url";
+import type { ProfessionalDetails, Resource } from "@/lib/types";
 
-// AtSign for every social profile: this lucide version ships no brand icons.
-const SOCIAL_MEDIA: Record<string, { label: string; icon: LucideIcon }> = {
-  linkedin: { label: "LinkedIn", icon: AtSign },
-  instagram: { label: "Instagram", icon: AtSign },
-  facebook: { label: "Facebook", icon: AtSign },
-  youtube: { label: "YouTube", icon: AtSign },
-  tiktok: { label: "TikTok", icon: AtSign },
-  twitter: { label: "X / Twitter", icon: AtSign },
+const SOCIAL_MEDIA: Record<string, string> = {
+  linkedin: "LinkedIn",
+  instagram: "Instagram",
+  facebook: "Facebook",
+  youtube: "YouTube",
+  tiktok: "TikTok",
+  twitter: "X / Twitter",
 };
 
-export default function ProfessionalDetail({ details }: { details: ProfessionalDetails }) {
+/** Fiche « Professionnel·es », laid out after the client's October 2026 mockup. */
+export default function ProfessionalDetail({
+  resource,
+  details,
+}: {
+  resource: Resource;
+  details: ProfessionalDetails;
+}) {
   const { contact, socialLinks, discount, upcomingAssociationEvent } = details;
-
-  const contactLinks = [
-    contact.website ? { label: "Site internet", href: contact.website, icon: Globe } : null,
-    contact.bookingUrl
-      ? { label: "Prendre rendez-vous", href: contact.bookingUrl, icon: CalendarCheck }
-      : null,
-    contact.phone ? { label: contact.phone, icon: Phone } : null,
-    contact.email ? { label: contact.email, icon: Mail } : null,
-    ...Object.entries(socialLinks ?? {}).map(([key, url]) => ({
-      label: SOCIAL_MEDIA[key]?.label ?? key,
-      href: url,
-      icon: SOCIAL_MEDIA[key]?.icon ?? LinkIcon,
-    })),
-  ].filter(Boolean) as Array<{ label: string; href?: string; icon: LucideIcon }>;
+  const fullName = `${details.firstName} ${details.lastName}`;
+  const hasExtras =
+    !!details.interviewUrl || !!discount || !!upcomingAssociationEvent || resource.isAssociationPartner;
 
   return (
-    <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
-      <DetailSection title="Présentation">
-        <p>{details.presentation}</p>
-        <DataList
-          rows={[
-            { label: "Localisation", value: `${details.city}, ${label("countries", details.country)}` },
-            {
-              label: "Consultation",
-              value: labels("consultationModes", details.consultationModes).join(" · "),
-            },
-          ]}
-        />
-      </DetailSection>
+    <DetailBody
+      main={
+        <>
+          <DetailSection title="Présentation">
+            <p className="leading-relaxed">{details.presentation}</p>
+          </DetailSection>
 
-      <DetailSection title={`Spécialité${details.specialties.length > 1 ? "s" : ""}`}>
-        {/* Accordion: mirrors the client's mockup (label + chevron). */}
-        <Accordion type="single" collapsible className="w-full">
-          {details.specialties.map((specialty) => (
-            <AccordionItem key={specialty.id} value={specialty.id}>
-              <AccordionTrigger>{specialty.label}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {specialty.description}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-
-        {/* Client request: « Thématiques abordées » sits under the specialties. */}
-        {details.topics.length > 0 ? (
-          <div className="space-y-2 border-t pt-3">
-            <p className="text-xs tracking-wide text-muted-foreground uppercase">
-              Thématiques abordées
-            </p>
-            <ul className="flex flex-wrap gap-1.5">
-              {labels("professionalTopics", details.topics).map((topic) => (
-                <li key={topic}>
-                  <Badge variant="secondary" className="font-normal">
-                    {topic}
-                  </Badge>
-                </li>
+          <DetailSection title={`Spécialité${details.specialties.length > 1 ? "s" : ""}`}>
+            {/* Expandable rows, as in the client's wireframe; the first one is open. */}
+            <Accordion
+              type="multiple"
+              defaultValue={details.specialties.slice(0, 1).map((item) => item.id)}
+              className="gap-2"
+            >
+              {details.specialties.map((specialty) => (
+                <AccordionItem
+                  key={specialty.id}
+                  value={specialty.id}
+                  className="rounded-lg border px-4 data-[state=open]:border-transparent data-[state=open]:bg-accent/60"
+                >
+                  <AccordionTrigger className="py-3 text-base hover:no-underline">
+                    {specialty.label}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 text-muted-foreground">
+                    {specialty.description}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </ul>
-          </div>
-        ) : null}
-      </DetailSection>
+            </Accordion>
+          </DetailSection>
 
-      {discount ? (
-        <DetailSection
-          title={
-            <span className="flex items-center gap-3">
-              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-foreground text-xs font-bold text-background">
-                -{discount.percentage}%
-              </span>
-              Offre adhérent·es de l’asso
-            </span>
-          }
-        >
-          <p>{discount.description}</p>
-        </DetailSection>
-      ) : null}
+          {details.topics.length > 0 ? (
+            <DetailSection title="Thématiques abordées">
+              <ul className="flex flex-wrap gap-2">
+                {labels("professionalTopics", details.topics).map((topic) => (
+                  <li key={topic}>
+                    <Badge
+                      variant="outline"
+                      className="h-auto border-primary/25 bg-accent/50 px-3 py-1.5 text-sm font-normal text-accent-foreground"
+                    >
+                      {topic}
+                    </Badge>
+                  </li>
+                ))}
+              </ul>
+            </DetailSection>
+          ) : null}
 
-      {upcomingAssociationEvent ? (
-        <DetailSection title="Cercle mieux-être à venir">
-          <p>
-            <strong>{upcomingAssociationEvent.title}</strong>
-            <br />
-            {formatDate(upcomingAssociationEvent.date)}
-          </p>
-          <p className="text-muted-foreground">
-            Les professionnel·les qui animent un cercle remontent dans les résultats (étape 2).
-          </p>
-        </DetailSection>
-      ) : null}
+          <DetailSection id="contact" title={`Contacter ${fullName}`}>
+            <DetailList>
+              {contact.email ? (
+                <ContactRow icon={Mail} label="E-mail" value={contact.email} href={`mailto:${contact.email}`} />
+              ) : null}
+              {contact.phone ? (
+                <ContactRow
+                  icon={Phone}
+                  label="Téléphone"
+                  value={contact.phone}
+                  href={`tel:${contact.phone.replace(/\s/g, "")}`}
+                />
+              ) : null}
+              {contact.website ? (
+                <ContactRow
+                  icon={Globe}
+                  label="Site internet"
+                  value="Consulter le site"
+                  href={contact.website}
+                  external
+                />
+              ) : null}
+              {Object.entries(socialLinks ?? {}).map(([key, url]) => (
+                <ContactRow
+                  key={key}
+                  icon={AtSign}
+                  label={SOCIAL_MEDIA[key] ?? key}
+                  value="Voir le profil"
+                  href={url}
+                  external
+                />
+              ))}
+            </DetailList>
 
-      <DetailSection title="Contact">
-        <LinkList links={contactLinks} />
-      </DetailSection>
-    </div>
+            {contact.bookingUrl ? (
+              <Button asChild size="lg" className="w-full">
+                <a href={contact.bookingUrl} target="_blank" rel="noopener noreferrer">
+                  Prendre rendez-vous
+                  <ExternalLink aria-hidden="true" />
+                  <span className="sr-only">(ouvre un nouvel onglet)</span>
+                </a>
+              </Button>
+            ) : null}
+
+            <p className="text-xs text-muted-foreground">
+              Les coordonnées sont fournies directement par {fullName}. L’Invisithèque n’intervient
+              pas dans la prise de rendez-vous.
+            </p>
+          </DetailSection>
+        </>
+      }
+      aside={
+        <>
+          <DetailSection title="Informations pratiques">
+            <DetailList>
+              <InfoRow
+                icon={MapPin}
+                label="Lieu de consultation"
+                value={`${details.city}, ${label("countries", details.country)}`}
+              />
+              <InfoRow
+                icon={Monitor}
+                label="Mode de consultation"
+                value={consultationModesText(details.consultationModes)}
+              />
+              <InfoRow icon={Banknote} label="Tarif" value={label("pricing", resource.pricing)} />
+            </DetailList>
+          </DetailSection>
+
+          {hasExtras ? (
+            <DetailSection title="Éléments complémentaires">
+              {details.interviewUrl ? (
+                <Highlight
+                  tone="accent"
+                  icon={CirclePlay}
+                  title="Découvrir son interview avec Les Invisibles"
+                  link={{ label: "Voir l’interview", href: details.interviewUrl, external: true }}
+                >
+                  Une vidéo pour mieux connaître son parcours, son approche et sa vision.
+                </Highlight>
+              ) : null}
+
+              {discount ? (
+                <Highlight tone="partner" badge={`-${discount.percentage}%`} title="Avantage adhérent·es">
+                  {discount.description}
+                </Highlight>
+              ) : null}
+
+              {upcomingAssociationEvent ? (
+                <Highlight
+                  tone="event"
+                  icon={CalendarHeart}
+                  title="Cercle mieux-être"
+                  link={{ label: "Consulter les prochaines dates", href: wellbeingCirclesHref() }}
+                >
+                  {upcomingAssociationEvent.title}, le {formatDate(upcomingAssociationEvent.date)}, animé par{" "}
+                  {details.firstName}.
+                </Highlight>
+              ) : null}
+
+              {resource.isAssociationPartner ? (
+                <Highlight tone="partner" icon={Handshake} title="Partenaire des Invisibles">
+                  {fullName} est partenaire de l’association Les Invisibles.
+                </Highlight>
+              ) : null}
+            </DetailSection>
+          ) : null}
+        </>
+      }
+    />
   );
 }

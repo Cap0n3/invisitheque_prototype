@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Bookmark, BookOpen, Building2, Users, UserRound, Wrench } from "lucide-react";
+import { Bookmark } from "lucide-react";
 import { toast } from "sonner";
 import Badges from "./Badges";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -11,16 +11,8 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { getCardMeta, typeLabel } from "@/lib/data";
-import type { Resource, ResourceType } from "@/lib/types";
-
-/** Neutral flat fills: no real photos in the prototype (spec 40). */
-const TYPE_ICON: Record<ResourceType, typeof UserRound> = {
-  professional: UserRound,
-  cultural_content: BookOpen,
-  practical_tool: Wrench,
-  activity_support: Users,
-  organization_place: Building2,
-};
+import { TYPE_ICON } from "@/lib/typeIcons";
+import type { Resource } from "@/lib/types";
 
 export default function ResourceCard({ resource }: { resource: Resource }) {
   const [isFavorite, setFavorite] = useState(false);

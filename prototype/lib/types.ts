@@ -36,6 +36,8 @@ export interface ProfessionalDetails {
   /** « Thématiques abordées » - ids from taxonomy.professionalTopics. */
   topics: string[];
   presentation: string;
+  /** Video interview recorded by the association, shown in « Éléments complémentaires ». */
+  interviewUrl?: string;
   contact: {
     website?: string;
     bookingUrl?: string;

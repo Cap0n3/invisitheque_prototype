@@ -58,3 +58,17 @@ export function buildSearchParams(state: SearchUrlState): string {
 
   return params.toString();
 }
+
+/** Internal link to the list of wellbeing circles, used by the detail pages. */
+export function wellbeingCirclesHref(): string {
+  const query = buildSearchParams({
+    query: "",
+    sort: "relevance",
+    filters: {
+      ...EMPTY_FILTERS,
+      resourceType: "activity_support",
+      activityCategories: ["wellbeing_circle"],
+    },
+  });
+  return `/search?${query}`;
+}
